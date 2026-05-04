@@ -8,6 +8,7 @@ import {
   Calendar,
   Check,
   ChevronRight,
+  Loader2,
   Diamond,
   Heart,
   Landmark,
@@ -69,7 +70,9 @@ type Props = {
 };
 
 const FORM_START = 4;
-const TOTAL_STEPS = 8;
+const REVIEW_STEP = 7;
+const PAYMENT_STEP = 8;
+const TOTAL_STEPS = 9;
 
 type EventKind = "wedding" | "nikah" | "henna" | "engagement";
 
@@ -90,13 +93,23 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
   const [pickedTemplate, setPickedTemplate] = useState(templateSlug ?? "");
   const [templateDemoSlug, setTemplateDemoSlug] = useState<string | null>(null);
 
-  const [done, setDone] = useState(false);
+  const [done] = useState(false);
   const [err, setErr] = useState<string | null>(null);
+  const [savingDraft, setSavingDraft] = useState(false);
   const [cloud, setCloud] = useState<{
     token: string;
     panelUrl: string;
     whatsappUrl: string | null;
   } | null>(null);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
+  const [checkoutFirstName, setCheckoutFirstName] = useState("");
+  const [checkoutLastName, setCheckoutLastName] = useState("");
+  const [checkoutEmail, setCheckoutEmail] = useState("");
+  const [checkoutPhone, setCheckoutPhone] = useState("");
+  const [checkoutAddress, setCheckoutAddress] = useState("");
+  const [checkoutCity, setCheckoutCity] = useState("");
+  const [checkoutCountry, setCheckoutCountry] = useState("TR");
+  const [checkoutPostcode, setCheckoutPostcode] = useState("");
 
   const [bride, setBride] = useState("");
   const [groom, setGroom] = useState("");
@@ -313,7 +326,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
       setFlowStep(7);
       return;
     }
-    if (flowStep < 7) setFlowStep((s) => s + 1);
+    if (flowStep < REVIEW_STEP) setFlowStep((s) => s + 1);
   }
 
   function prev() {
@@ -322,7 +335,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
     setFlowStep((s) => Math.max(0, s - 1));
   }
 
-  async function finish() {
+  async function saveDraftAndCreatePanel() {
     setErr(null);
     stopAudio();
     const music = tracks.find((x) => x.id === selectedTrack);
@@ -374,7 +387,73 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
     } catch {
       /* Supabase yok veya ağ hatası — yalnızca yerel kayıt */
     }
-    setDone(true);
+    return true;
+  }
+
+  async function preparePaymentStep() {
+    setSavingDraft(true);
+    try {
+      const ok = await saveDraftAndCreatePanel();
+      if (ok) {
+        setCheckoutFirstName((prev) => prev || bride.trim() || t("paymentFallbackFirstName"));
+        setCheckoutLastName((prev) => prev || groom.trim() || t("paymentFallbackLastName"));
+        setCheckoutPhone((prev) => prev || `90${phone.replace(/\D/g, "")}`);
+        setFlowStep(PAYMENT_STEP);
+      }
+    } finally {
+      setSavingDraft(false);
+    }
+  }
+
+  async function submitCheckout() {
+    if (!selectedPkg) {
+      setErr(t("onboardingPickBundle"));
+      return;
+    }
+    setCheckoutLoading(true);
+    setErr(null);
+    try {
+      const res = await fetch("/api/shopier/payment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "text/html, application/json" },
+        body: JSON.stringify({
+          packageId: selectedPkg,
+          locale,
+          buyer: {
+            firstName: checkoutFirstName.trim(),
+            lastName: checkoutLastName.trim(),
+            email: checkoutEmail.trim(),
+            phone: checkoutPhone.replace(/\s/g, ""),
+          },
+          billing: {
+            address: checkoutAddress.trim(),
+            city: checkoutCity.trim(),
+            country: checkoutCountry.trim(),
+            postcode: checkoutPostcode.trim(),
+          },
+        }),
+      });
+
+      const bodyText = await res.text();
+
+      if (!res.ok) {
+        try {
+          const j = JSON.parse(bodyText) as { error?: string };
+          setErr(j.error ?? t("paymentError"));
+        } catch {
+          setErr(t("paymentError"));
+        }
+        setCheckoutLoading(false);
+        return;
+      }
+
+      document.open();
+      document.write(bodyText);
+      document.close();
+    } catch {
+      setErr(t("paymentError"));
+      setCheckoutLoading(false);
+    }
   }
 
   const selectedTrackObj = tracks.find((x) => x.id === selectedTrack);
@@ -923,7 +1002,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                 </div>
               ) : null}
 
-              {flowStep === 7 ? (
+              {flowStep === REVIEW_STEP ? (
                 <div className="mt-8 space-y-4 text-sm pb-2">
                   <p className="font-display text-lg font-semibold text-ink">{t("stepReviewTitle")}</p>
                   <div className="rounded-2xl border border-ink/8 bg-canvas-muted/50 p-4">
@@ -958,6 +1037,108 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                   </div>
                 </div>
               ) : null}
+
+              {flowStep === PAYMENT_STEP ? (
+                <div className="mt-8 space-y-5">
+                  <div className="rounded-2xl border border-brand/15 bg-canvas-muted/55 p-4">
+                    <p className="text-xs font-bold uppercase tracking-wide text-muted">{t("paymentStepBadge")}</p>
+                    <p className="mt-1 font-display text-lg font-semibold text-ink">{t("paymentStepTitle")}</p>
+                    <p className="mt-1 text-sm text-muted">{t("paymentStepBody")}</p>
+                  </div>
+
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <label className="text-sm font-semibold text-ink">
+                      {t("paymentFirstName")} *
+                      <input
+                        required
+                        value={checkoutFirstName}
+                        onChange={(e) => setCheckoutFirstName(e.target.value)}
+                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        autoComplete="given-name"
+                      />
+                    </label>
+                    <label className="text-sm font-semibold text-ink">
+                      {t("paymentLastName")} *
+                      <input
+                        required
+                        value={checkoutLastName}
+                        onChange={(e) => setCheckoutLastName(e.target.value)}
+                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        autoComplete="family-name"
+                      />
+                    </label>
+                  </div>
+
+                  <label className="block text-sm font-semibold text-ink">
+                    {t("paymentEmail")} *
+                    <input
+                      required
+                      type="email"
+                      value={checkoutEmail}
+                      onChange={(e) => setCheckoutEmail(e.target.value)}
+                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      autoComplete="email"
+                    />
+                  </label>
+
+                  <label className="block text-sm font-semibold text-ink">
+                    {t("paymentPhone")} *
+                    <input
+                      required
+                      inputMode="tel"
+                      value={checkoutPhone}
+                      onChange={(e) => setCheckoutPhone(e.target.value)}
+                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      autoComplete="tel"
+                    />
+                  </label>
+
+                  <label className="block text-sm font-semibold text-ink">
+                    {t("paymentAddress")} *
+                    <input
+                      required
+                      value={checkoutAddress}
+                      onChange={(e) => setCheckoutAddress(e.target.value)}
+                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      autoComplete="street-address"
+                    />
+                  </label>
+
+                  <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+                    <label className="text-sm font-semibold text-ink">
+                      {t("paymentCity")} *
+                      <input
+                        required
+                        value={checkoutCity}
+                        onChange={(e) => setCheckoutCity(e.target.value)}
+                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        autoComplete="address-level2"
+                      />
+                    </label>
+                    <label className="text-sm font-semibold text-ink">
+                      {t("paymentPostcode")} *
+                      <input
+                        required
+                        value={checkoutPostcode}
+                        onChange={(e) => setCheckoutPostcode(e.target.value)}
+                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        autoComplete="postal-code"
+                      />
+                    </label>
+                  </div>
+
+                  <label className="block text-sm font-semibold text-ink">
+                    {t("paymentCountry")} *
+                    <input
+                      required
+                      value={checkoutCountry}
+                      onChange={(e) => setCheckoutCountry(e.target.value)}
+                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      autoComplete="country-name"
+                    />
+                  </label>
+                </div>
+              ) : null}
             </>
           )}
         </div>
@@ -976,7 +1157,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
               <ArrowLeft className="size-4" />
               {t("back")}
             </button>
-            {flowStep < 7 ? (
+            {flowStep < REVIEW_STEP ? (
               <button
                 type="button"
                 onClick={next}
@@ -985,13 +1166,26 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                 {t("continue")}
                 <ChevronRight className="size-4" />
               </button>
+            ) : flowStep === REVIEW_STEP ? (
+              <button
+                type="button"
+                onClick={preparePaymentStep}
+                disabled={savingDraft}
+                className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand to-brand-hover px-6 py-2.5 text-sm font-bold text-white shadow-[var(--shadow-button)] transition-all hover:-translate-y-0.5 sm:flex-none sm:px-8"
+              >
+                {savingDraft ? <Loader2 className="size-4 animate-spin" aria-hidden /> : null}
+                {savingDraft ? t("savingDraft") : t("finish")}
+                <ChevronRight className="size-4" />
+              </button>
             ) : (
               <button
                 type="button"
-                onClick={finish}
-                className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand to-brand-hover px-6 py-2.5 text-sm font-bold text-white shadow-[var(--shadow-button)] transition-all hover:-translate-y-0.5 sm:flex-none sm:px-8"
+                onClick={submitCheckout}
+                disabled={checkoutLoading}
+                className="inline-flex min-h-11 flex-1 items-center justify-center gap-2 rounded-2xl bg-gradient-to-r from-brand to-brand-hover px-6 py-2.5 text-sm font-bold text-white shadow-[var(--shadow-button)] transition-all hover:-translate-y-0.5 disabled:opacity-60 sm:flex-none sm:px-8"
               >
-                {t("finish")}
+                {checkoutLoading ? <Loader2 className="size-4 animate-spin" aria-hidden /> : null}
+                {checkoutLoading ? t("paymentLoading") : t("paymentSubmit")}
                 <ChevronRight className="size-4" />
               </button>
             )}
