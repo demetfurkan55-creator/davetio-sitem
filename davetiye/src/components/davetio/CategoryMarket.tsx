@@ -2,13 +2,14 @@
 
 import { useLocale, useTranslations } from "next-intl";
 import { X } from "lucide-react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "@/i18n/navigation";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { DavetiyeTemplateCard } from "@/components/davetio/DavetiyeTemplateCard";
 import { InvitationPreviewStage } from "@/components/davetio/InvitationPreviewStage";
 import { cn } from "@/lib/utils";
 import { resolveInviteVideoUrl } from "@/lib/invite-ambient-video";
+import { getTemplatePreviewDemo } from "@/lib/template-preview-demo";
 import { resolveTemplateHeroImage } from "@/lib/template-preview-images";
 
 const templateGridContainer = {
@@ -49,9 +50,12 @@ export type MarketTemplate = {
 export function CategoryMarket({
   categories,
   templates,
+  luxuryCards,
 }: {
   categories: MarketCategory[];
   templates: MarketTemplate[];
+  /** Davetiye Katalogu — premium kart görünümü */
+  luxuryCards?: boolean;
 }) {
   const t = useTranslations("Landing");
   const tp = useTranslations("Landing.previewModal");
@@ -67,6 +71,11 @@ export function CategoryMarket({
         ? templates
         : templates.filter((x) => x.filterId === filter),
     [filter, templates],
+  );
+
+  const activePreviewDemo = useMemo(
+    () => (preview ? getTemplatePreviewDemo(preview.slug, locale) : null),
+    [preview, locale],
   );
 
   useEffect(() => {
@@ -107,10 +116,11 @@ export function CategoryMarket({
               type="button"
               onClick={() => setFilter(c.id)}
               className={cn(
-                "snap-start rounded-full border px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 sm:text-[0.7rem]",
+                "snap-start rounded-2xl border px-4 py-2.5 text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 sm:text-[0.7rem]",
                 filter === c.id
-                  ? "border-ink bg-ink text-white shadow-md"
-                  : "border-ink/12 bg-white text-muted shadow-sm hover:border-ink/22 hover:text-ink",
+                  ? "border-seal-gold/40 bg-seal-navy text-white shadow-[0_10px_32px_-8px_rgba(20,31,56,0.35)] ring-1 ring-seal-gold/30"
+                  : "border-ink/10 bg-white/95 text-muted shadow-sm hover:border-seal-gold/25 hover:text-ink",
+                luxuryCards && "shadow-[0_4px_20px_rgba(20,31,56,0.06)]",
               )}
             >
               {c.label}
@@ -121,7 +131,10 @@ export function CategoryMarket({
 
       <motion.div
         key={filter}
-        className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4"
+        className={cn(
+          "grid grid-cols-1 gap-5 sm:grid-cols-2",
+          luxuryCards ? "lg:grid-cols-3" : "lg:grid-cols-4",
+        )}
         variants={templateGridContainer}
         initial="hidden"
         whileInView="show"
@@ -142,28 +155,49 @@ export function CategoryMarket({
                 priceStrike={item.priceStrike}
                 priceCurrent={item.priceCurrent}
                 ctaLabel={t("templates.viewProduct")}
+                cardEyebrow={item.cardEyebrow}
+                cardCouple={item.cardCouple}
+                cardDate={item.cardDate}
+                gallery={!!luxuryCards}
                 onPreview={() => setPreview(item)}
                 previewLabel={t("templates.preview")}
+                luxury={luxuryCards}
               />
             </motion.div>
           );
         })}
       </motion.div>
 
-      {preview ? (
-        <div
-          className="fixed inset-0 z-[200] flex items-end justify-center bg-ink/55 p-3 backdrop-blur-[2px] sm:items-center sm:p-6"
-          role="dialog"
-          aria-modal="true"
-          aria-label={preview.name}
-        >
-          <button
-            type="button"
-            className="absolute inset-0 cursor-default"
-            onClick={() => setPreview(null)}
-            aria-label={tp("close")}
-          />
-          <div className="davetio-modal-panel relative z-10 w-full max-w-[min(100%,520px)]">
+      <AnimatePresence>
+        {preview ? (
+          <motion.div
+            key={preview.slug}
+            className="fixed inset-0 z-[200] flex items-end justify-center p-3 sm:items-center sm:p-6"
+            role="dialog"
+            aria-modal="true"
+            aria-label={preview.name}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.22, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <motion.button
+              type="button"
+              className="absolute inset-0 cursor-default bg-ink/55 backdrop-blur-[2px]"
+              onClick={() => setPreview(null)}
+              aria-label={tp("close")}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            />
+            <motion.div
+              className="davetio-modal-panel relative z-10 w-full max-w-[min(100%,520px)] will-change-transform"
+              initial={{ opacity: 0, y: 14, scale: 0.985 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 10, scale: 0.985 }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              layout={false}
+            >
             <div className="overflow-hidden rounded-[1.75rem] border border-white/25 bg-canvas shadow-2xl ring-1 ring-brand/10">
               <div className="flex items-center justify-between border-b border-ink/[0.06] bg-white/95 px-4 py-3 backdrop-blur-md">
                 <span className="text-xs font-bold uppercase tracking-[0.12em] text-brand">
@@ -179,7 +213,7 @@ export function CategoryMarket({
                   <span className="sr-only">{tp("close")}</span>
                 </button>
               </div>
-              <div className="relative max-h-[min(82vh,720px)] touch-pan-y overflow-y-auto overscroll-y-contain bg-gradient-to-b from-white via-canvas to-canvas-muted p-4 sm:p-5">
+              <div className="davetio-scrollbar-hide relative max-h-[min(82vh,720px)] touch-pan-y overflow-y-auto overscroll-y-contain bg-gradient-to-b from-white via-canvas to-canvas-muted p-4 sm:p-5">
                 <div
                   className="mb-4 flex rounded-2xl border border-ink/[0.08] bg-white/90 p-1 shadow-inner"
                   role="tablist"
@@ -215,19 +249,23 @@ export function CategoryMarket({
                   </button>
                 </div>
 
-                {previewTab === "invite" ? (
+                {previewTab === "invite" && activePreviewDemo ? (
                   <>
                     <InvitationPreviewStage
+                      startUnlocked
+                      theme={preview.filterId}
                       videoSrc={resolveInviteVideoUrl({
                         templateOverride: preview.videoSrc,
                         messageFallback: tp("videoSrc"),
                       })}
-                      previewEyebrow={tp("previewEyebrow")}
-                      previewNames={tp("previewNames")}
-                      previewDate={tp("previewDate")}
-                      previewTagline={tp("previewTagline")}
-                      previewVenue={tp("previewVenue")}
-                      previewMapsCta={tp("previewMapsCta")}
+                      previewEyebrow={activePreviewDemo.previewEyebrow}
+                      previewNames={activePreviewDemo.previewNames}
+                      previewDate={activePreviewDemo.previewDate}
+                      previewTagline={activePreviewDemo.previewTagline}
+                      previewVenue={activePreviewDemo.previewVenue}
+                      previewMapsCta={activePreviewDemo.previewMapsCta}
+                      mapEmbedUrl={activePreviewDemo.mapEmbedUrl}
+                      mapsOpenUrl={activePreviewDemo.mapsOpenUrl}
                       templateName={preview.name}
                       heroImage={resolveTemplateHeroImage(preview.slug, preview.image)}
                     />
@@ -264,9 +302,10 @@ export function CategoryMarket({
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      ) : null}
+            </motion.div>
+          </motion.div>
+        ) : null}
+      </AnimatePresence>
     </>
   );
 }

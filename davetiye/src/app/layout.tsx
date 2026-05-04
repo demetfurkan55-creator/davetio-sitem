@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Caveat, DM_Sans, Fraunces, Geist_Mono } from "next/font/google";
+import { Geist_Mono, Great_Vibes, Montserrat, Playfair_Display } from "next/font/google";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-dm",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -13,27 +13,31 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const display = Fraunces({
-  variable: "--font-display",
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
-  weight: ["500", "600", "700"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const accentScript = Caveat({
-  variable: "--font-accent",
+const greatVibes = Great_Vibes({
+  variable: "--font-great-vibes",
   subsets: ["latin"],
-  weight: ["600", "700"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
   title: "Davetio",
-  description: "Premium dijital davetiye platformu",
+  description: "Sinematik dijital düğün davetiyesi deneyimi",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#fdf9f9" },
+    { media: "(prefers-color-scheme: dark)", color: "#2a0a12" },
+  ],
 };
 
 export default function RootLayout({
@@ -45,7 +49,7 @@ export default function RootLayout({
     <html
       lang="tr"
       suppressHydrationWarning
-      className={`${dmSans.variable} ${geistMono.variable} ${display.variable} ${accentScript.variable} h-full scroll-smooth antialiased`}
+      className={`${montserrat.variable} ${geistMono.variable} ${playfair.variable} ${greatVibes.variable} h-full scroll-smooth antialiased`}
     >
       <body className="flex min-h-[100dvh] min-h-full flex-col bg-canvas text-ink font-sans">
         {children}

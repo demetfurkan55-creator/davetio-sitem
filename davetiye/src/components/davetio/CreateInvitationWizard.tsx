@@ -22,6 +22,7 @@ import {
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { resolveInviteVideoUrl } from "@/lib/invite-ambient-video";
+import { getTemplatePreviewDemo } from "@/lib/template-preview-demo";
 import { resolveTemplateHeroImage } from "@/lib/template-preview-images";
 import { HeroFlyingHearts } from "@/components/landing/HeroFlyingHearts";
 import { InvitationPreviewStage } from "@/components/davetio/InvitationPreviewStage";
@@ -145,6 +146,11 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
 
   const effectiveTemplateSlug = pickedTemplate || templateSlug || "serenade-hall";
 
+  const activeTemplateFilterId = useMemo(
+    () => allTemplateItems.find((x) => x.slug === effectiveTemplateSlug)?.filterId,
+    [allTemplateItems, effectiveTemplateSlug],
+  );
+
   const displayWhen = useMemo(() => {
     return formatStepDateTime(eventDate, eventTime, locale) ?? t("exampleDateLabel");
   }, [eventDate, eventTime, locale, t]);
@@ -171,6 +177,16 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
   const demoTemplate = useMemo(
     () => allTemplateItems.find((x) => x.slug === templateDemoSlug) ?? null,
     [allTemplateItems, templateDemoSlug],
+  );
+
+  const studioPreviewDemo = useMemo(
+    () => getTemplatePreviewDemo(effectiveTemplateSlug, locale),
+    [effectiveTemplateSlug, locale],
+  );
+
+  const templateModalDemo = useMemo(
+    () => (demoTemplate ? getTemplatePreviewDemo(demoTemplate.slug, locale) : null),
+    [demoTemplate, locale],
   );
 
   const hydrated = useRef(false);
@@ -604,6 +620,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
               </div>
               <InvitationPreviewStage
                 variant="studio"
+                theme={activeTemplateFilterId}
                 showTemplateFooter={false}
                 videoSrc={videoSrc}
                 previewEyebrow={t("previewEyebrow")}
@@ -618,6 +635,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                   (venueAddress.trim() || t("exampleAddress")).replace(/\n/g, ", ")
                 }
                 previewMapsCta={mapsLink.trim() ? `${t("mapsPreviewCta")} ✓` : t("mapsPreviewCta")}
+                mapEmbedUrl={studioPreviewDemo.mapEmbedUrl}
+                mapsOpenUrl={mapsLink.trim() || studioPreviewDemo.mapsOpenUrl}
                 templateName={meta}
                 heroImage={heroImageStudio}
               />
@@ -980,7 +999,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
         </div>
       ) : null}
 
-      {templateDemoSlug && demoTemplate ? (
+      {templateDemoSlug && demoTemplate && templateModalDemo ? (
         <div
           className="fixed inset-0 z-[80] flex items-end justify-center bg-ink/50 p-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] backdrop-blur-sm sm:items-center sm:p-6"
           role="dialog"
@@ -1009,16 +1028,18 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
             </div>
             <InvitationPreviewStage
               variant="card"
+              theme={demoTemplate?.filterId}
+              startUnlocked
               showTemplateFooter
               videoSrc={videoSrc}
-              previewEyebrow={t("previewEyebrow")}
-              previewNames={`${t("exampleBride")} & ${t("exampleGroom")}`}
-              previewTagline={t("previewTagline")}
-              previewDate={t("exampleDateLabel")}
-              previewVenue={
-                `${t("exampleVenue")} · ` + t("exampleAddress").replace(/\n/g, ", ")
-              }
-              previewMapsCta={t("mapsPreviewCta")}
+              previewEyebrow={templateModalDemo.previewEyebrow}
+              previewNames={templateModalDemo.previewNames}
+              previewTagline={templateModalDemo.previewTagline}
+              previewDate={templateModalDemo.previewDate}
+              previewVenue={templateModalDemo.previewVenue}
+              previewMapsCta={templateModalDemo.previewMapsCta}
+              mapEmbedUrl={templateModalDemo.mapEmbedUrl}
+              mapsOpenUrl={templateModalDemo.mapsOpenUrl}
               templateName={demoTemplate.name}
               heroImage={resolveTemplateHeroImage(demoTemplate.slug, demoTemplate.image)}
             />

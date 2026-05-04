@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown } from "lucide-react";
-import NextLink from "next/link";
 import { useLocale } from "next-intl";
 import { Link } from "@/i18n/navigation";
 import { cn } from "@/lib/utils";
@@ -12,7 +11,6 @@ export type LandingDesktopNavLabels = {
   features: string;
   templates: string;
   catalog: string;
-  demoInvite: string;
   pricing: string;
   faq: string;
   panel: string;
@@ -69,9 +67,6 @@ export function LandingDesktopNav({
       <Link href="/katalog" className={linkClassName}>
         {labels.catalog}
       </Link>
-      <NextLink href="/demo" className={linkClassName}>
-        {labels.demoInvite}
-      </NextLink>
 
       <div ref={wrapRef} className="relative">
         <button

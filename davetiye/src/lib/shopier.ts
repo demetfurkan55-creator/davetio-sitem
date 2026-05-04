@@ -1,4 +1,4 @@
-import { createHmac, randomInt, timingSafeEqual } from "node:crypto";
+import { createHmac, randomInt, randomUUID, timingSafeEqual } from "node:crypto";
 
 /** Shopier ödeme formu POST adresi */
 export const SHOPIER_PAY_URL = "https://www.shopier.com/ShowProduct/api_pay4.php";
@@ -43,6 +43,14 @@ export type ShopierCheckoutInput = {
   currentLanguage?: 0 | 1;
   websiteIndex?: number;
   moduleVersion?: string;
+};
+
+export type ShopierCallbackPayload = {
+  random_nr?: string;
+  order_id?: string;
+  platform_order_id?: string;
+  hash?: string;
+  signature?: string;
 };
 
 function requireEnv(name: "SHOPIER_API_KEY" | "SHOPIER_API_SECRET"): string {
@@ -131,6 +139,12 @@ export function buildShopierPaymentFormFields(input: ShopierCheckoutInput): Reco
   };
 }
 
+export function createPlatformOrderId(prefix = "ORD"): string {
+  const now = Date.now().toString(36).toUpperCase();
+  const nonce = randomUUID().replace(/-/g, "").slice(0, 10).toUpperCase();
+  return `${prefix}-${now}-${nonce}`;
+}
+
 function escapeHtmlAttr(value: string): string {
   return value
     .replace(/&/g, "&amp;")
@@ -171,7 +185,7 @@ export function buildShopierAutoSubmitHtml(fields: Record<string, string>): stri
 </html>`;
 }
 
-/** Shopier ödeme sonrası POST’ta dönen imzayı doğrular */
+/** Shopier ödeme sonrası POST’ta dönen imzayı doğrular (notify ile aynı: random_nr + platform_order_id + total_order_value + currency) */
 export function verifyShopierReturnSignature(
   post: Record<string, string>,
   apiSecret?: string,
@@ -181,12 +195,13 @@ export function verifyShopierReturnSignature(
 
   const platformOrderId = post.platform_order_id ?? "";
   const randomNr = post.random_nr ?? "";
+  const totalOrderValue = post.total_order_value ?? "";
+  const currency = post.currency ?? "";
   const signatureB64 = post.signature ?? "";
-  if (!platformOrderId || !randomNr || !signatureB64) return false;
+  if (!platformOrderId || !randomNr || !totalOrderValue || !currency || !signatureB64) return false;
 
-  const expected = createHmac("sha256", secret)
-    .update(`${randomNr}${platformOrderId}`, "utf8")
-    .digest();
+  const payload = `${randomNr}${platformOrderId}${totalOrderValue}${currency}`;
+  const expected = createHmac("sha256", secret).update(payload, "utf8").digest();
 
   let decoded: Buffer;
   try {
@@ -198,6 +213,41 @@ export function verifyShopierReturnSignature(
   if (decoded.length !== expected.length) return false;
   try {
     return timingSafeEqual(decoded, expected);
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * Shopier callback hash doğrulaması.
+ * Beklenen metin: random_nr + order_id (bazı kurulumlarda platform_order_id döner).
+ * Hash çoğunlukla base64, nadiren hex gelebilir; ikisini de güvenli şekilde doğrular.
+ */
+export function verifyShopierCallbackHash(
+  post: ShopierCallbackPayload,
+  apiSecret?: string,
+): boolean {
+  const secret = (apiSecret ?? process.env.SHOPIER_API_SECRET)?.trim();
+  if (!secret) return false;
+
+  const randomNr = post.random_nr?.trim() ?? "";
+  const orderId = post.order_id?.trim() || post.platform_order_id?.trim() || "";
+  const receivedHash = post.hash?.trim() || post.signature?.trim() || "";
+  if (!randomNr || !orderId || !receivedHash) return false;
+
+  const payload = `${randomNr}${orderId}`;
+  const expectedRaw = createHmac("sha256", secret).update(payload, "utf8").digest();
+
+  const expectedBase64 = expectedRaw.toString("base64");
+  if (receivedHash === expectedBase64) return true;
+
+  const expectedHex = expectedRaw.toString("hex");
+  if (receivedHash.toLowerCase() === expectedHex.toLowerCase()) return true;
+
+  try {
+    const decoded = Buffer.from(receivedHash, "base64");
+    if (decoded.length !== expectedRaw.length) return false;
+    return timingSafeEqual(decoded, expectedRaw);
   } catch {
     return false;
   }

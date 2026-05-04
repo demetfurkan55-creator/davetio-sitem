@@ -1,41 +1,44 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Davetio kimliği — mühür (lacivert / altın) */
-  --color-seal-navy: #141f38;
-  --color-seal-navy-mid: #1e2d4d;
-  --color-seal-gold: #c6a04a;
-  --color-seal-gold-soft: #dcc896;
-  --color-canvas: #f6f3ec;
-  --color-canvas-muted: #ebe6df;
-  --color-ink: #161814;
-  --color-ink-soft: #2c2e2a;
-  --color-muted: #5e5c56;
-  --color-muted-light: #7a776f;
-  --color-brand: #3f5d51;
-  --color-brand-hover: #2f483e;
-  --color-brand-muted: rgba(63, 93, 81, 0.16);
-  --color-sage-deep: #24342c;
-  --color-wine: #7a3340;
-  --color-wine-hover: #632a35;
-  --color-wine-muted: rgba(122, 51, 64, 0.12);
-  --color-accent-rose: #b24a5c;
-  --color-accent-rose-muted: rgba(178, 74, 92, 0.14);
-  --color-accent-rose-hover: #943e4d;
+  /* Davetio — maroon & soft gold (sinematik davetiye) */
+  --color-seal-navy: #2a0f14;
+  --color-seal-navy-mid: #3d161c;
+  --color-seal-gold: #c9a44a;
+  --color-seal-gold-soft: #dfc896;
+  --color-maroon: #6b1d2e;
+  --color-maroon-deep: #4a1420;
+  --color-maroon-muted: rgba(107, 29, 46, 0.12);
+  --color-canvas: #fdf9f9;
+  --color-canvas-muted: #f5efeb;
+  --color-ink: #1c1416;
+  --color-ink-soft: #2e2527;
+  --color-muted: #5e5658;
+  --color-muted-light: #7a7375;
+  --color-brand: #6b1d2e;
+  --color-brand-hover: #551825;
+  --color-brand-muted: rgba(107, 29, 46, 0.14);
+  --color-sage-deep: #2a1810;
+  --color-wine: #6b1d2e;
+  --color-wine-hover: #551825;
+  --color-wine-muted: rgba(107, 29, 46, 0.12);
+  --color-accent-rose: #8b2d3c;
+  --color-accent-rose-muted: rgba(139, 45, 60, 0.14);
+  --color-accent-rose-hover: #6f2430;
   --color-rose-gold: var(--color-brand);
   --color-rose-gold-hover: var(--color-brand-hover);
   --color-soft-gold: var(--color-seal-gold);
-  --color-soft-gold-muted: rgba(198, 160, 74, 0.28);
-  --color-accent-coral: #b24a5c;
-  --color-footer: #0f1729;
+  --color-soft-gold-muted: rgba(201, 164, 74, 0.3);
+  --color-accent-coral: #8b2d3c;
+  --color-footer: #1a0a0d;
   --color-footer-border: rgba(255, 255, 255, 0.08);
-  --font-sans: var(--font-dm), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-display), ui-serif, Georgia, serif;
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-playfair), ui-serif, Georgia, serif;
   --font-mono: var(--font-geist-mono), ui-monospace, monospace;
   --shadow-card: 0 4px 36px rgba(22, 24, 20, 0.07);
   --shadow-card-hover: 0 28px 70px rgba(22, 24, 20, 0.11);
-  --shadow-button: 0 14px 40px rgba(63, 93, 81, 0.3);
-  --shadow-glow: 0 0 56px rgba(63, 93, 81, 0.18);
+  --shadow-button: 0 14px 40px rgba(107, 29, 46, 0.28);
+  --shadow-glow: 0 0 56px rgba(201, 164, 74, 0.2);
 }
 
 @keyframes davetio-fade-up {
@@ -87,7 +90,7 @@ body {
   color: var(--color-ink);
   font-family: var(--font-sans);
   overflow-x: clip;
-  -webkit-tap-highlight-color: color-mix(in srgb, var(--color-brand) 18%, transparent);
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--color-maroon) 18%, transparent);
 }
 
 /* Hero coverflow — küçük ekranda yatay taşmayı kes */
@@ -96,7 +99,76 @@ body {
 }
 
 .font-accent {
-  font-family: var(--font-accent), ui-serif, Georgia, serif;
+  font-family: var(--font-great-vibes), var(--font-playfair), cursive;
+}
+
+/* Hero adım kartları — kâğıt dokusu */
+.davetio-paper-step {
+  background-color: rgba(255, 252, 250, 0.92);
+  background-image:
+    linear-gradient(180deg, rgba(255, 252, 250, 0.97), rgba(245, 239, 235, 0.55)),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+  box-shadow:
+    0 24px 60px -40px rgba(40, 10, 20, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+/* Suluboya dokusu — kartlar ve tam ekran davetiye */
+.davetio-watercolor-wash {
+  background-image:
+    radial-gradient(ellipse 90% 70% at 12% 18%, rgba(255, 218, 230, 0.35), transparent 52%),
+    radial-gradient(ellipse 70% 55% at 88% 22%, rgba(198, 160, 74, 0.14), transparent 48%),
+    radial-gradient(ellipse 65% 50% at 48% 92%, rgba(63, 93, 81, 0.12), transparent 50%);
+}
+
+.davetio-invite-scroll {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  overscroll-behavior-y: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.davetio-scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.davetio-scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .davetio-invite-scroll {
+    scroll-behavior: auto;
+  }
+
+  .davetio-seal-pulse-motion {
+    animation: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .davetio-seal-pulse-motion {
+    animation: davetio-seal-pulse 2.4s ease-in-out infinite;
+  }
+}
+
+@keyframes davetio-seal-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow:
+      0 12px 40px rgba(198, 160, 74, 0.45),
+      inset 0 2px 6px rgba(255, 255, 255, 0.45);
+  }
+  50% {
+    transform: scale(1.045);
+    box-shadow:
+      0 16px 52px rgba(198, 160, 74, 0.55),
+      inset 0 2px 6px rgba(255, 255, 255, 0.5);
+  }
 }
 
 :focus-visible {
@@ -233,7 +305,7 @@ body {
 }
 
 ::selection {
-  background-color: rgba(63, 93, 81, 0.22);
+  background-color: rgba(107, 29, 46, 0.18);
   color: var(--color-ink);
 }
 
@@ -296,7 +368,7 @@ body {
 
 .davetio-heart-particle {
   animation-name: davetio-heart-float;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(0.42, 0, 0.2, 1);
   animation-iteration-count: infinite;
 }
 
@@ -314,8 +386,113 @@ body {
 
 .davetio-heart-particle--subtle {
   animation-name: davetio-heart-float-subtle;
-  animation-timing-function: ease-in-out;
+  animation-timing-function: cubic-bezier(0.45, 0, 0.35, 1);
   animation-iteration-count: infinite;
+}
+
+@keyframes davetio-mark-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.028);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .davetio-mark-breathe {
+    animation: davetio-mark-breathe 4.8s ease-in-out infinite;
+    transform-origin: center center;
+  }
+}
+
+@keyframes davetio-ambient-drift {
+  0%,
+  100% {
+    transform: scale(1) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.045) translate(-0.6%, 0.4%);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .davetio-ambient-photo-bg {
+    animation: davetio-ambient-drift 32s ease-in-out infinite;
+    will-change: transform;
+  }
+}
+
+@keyframes davetio-footer-orb-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(3%, 2%) scale(1.04);
+    opacity: 0.92;
+  }
+}
+
+@keyframes davetio-footer-orb-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(-2.5%, -1.5%) scale(1.03);
+    opacity: 0.94;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .davetio-footer-orb--a {
+    animation: davetio-footer-orb-a 36s ease-in-out infinite;
+  }
+  .davetio-footer-orb--b {
+    animation: davetio-footer-orb-b 42s ease-in-out infinite;
+  }
+}
+
+@keyframes davetio-faq-answer-in {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .davetio-faq-answer {
+    animation: davetio-faq-answer-in 0.38s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+
+.hero-coverflow-card {
+  transition:
+    transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.45s ease,
+    border-color 0.35s ease;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .hero-coverflow-swiper .swiper-slide-active .hero-coverflow-card {
+    box-shadow:
+      0 32px 90px -26px rgba(20, 31, 56, 0.2),
+      0 12px 36px -16px rgba(178, 74, 92, 0.12);
+    border-color: color-mix(in srgb, var(--color-seal-gold) 22%, transparent);
+  }
+
+  .hero-coverflow-swiper .swiper-slide-next .hero-coverflow-card,
+  .hero-coverflow-swiper .swiper-slide-prev .hero-coverflow-card {
+    filter: saturate(0.97);
+  }
 }
 
 @keyframes davetio-word-drift {
@@ -365,6 +542,23 @@ body {
   .davetio-hero-shimmer {
     animation: none !important;
     opacity: 0.35;
+  }
+
+  .davetio-mark-breathe {
+    animation: none !important;
+  }
+
+  .davetio-ambient-photo-bg {
+    animation: none !important;
+  }
+
+  .davetio-footer-orb--a,
+  .davetio-footer-orb--b {
+    animation: none !important;
+  }
+
+  .davetio-faq-answer {
+    animation: none !important;
   }
 }
 

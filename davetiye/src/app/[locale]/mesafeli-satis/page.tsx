@@ -1,7 +1,7 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LegalArticle } from "@/components/legal/LegalArticle";
 
-export default async function TermsPage({
+export default async function DistanceSalesPage({
   params,
 }: {
   params: Promise<{ locale: string }>;
@@ -9,13 +9,13 @@ export default async function TermsPage({
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Legal" });
-  const sections = t.raw("termsSections") as { title: string; body: string }[];
+  const sections = t.raw("distanceSections") as { title: string; body: string }[];
 
   return (
     <LegalArticle
       eyebrow={t("eyebrow")}
-      title={t("termsTitle")}
-      intro={t("termsIntro")}
+      title={t("distanceTitle")}
+      intro={t("distanceIntro")}
       sections={sections}
       backLabel={t("backHome")}
     />

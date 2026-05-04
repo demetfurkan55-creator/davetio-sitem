@@ -4,11 +4,96 @@
     "description": "Erstellen Sie mit Davetio Ihre Hochzeits- und Standesamt-Einladung in wenigen Minuten — RSVP, Karte und teilbarer Link."
   },
   "Legal": {
-    "privacyTitle": "Datenschutz",
-    "privacyBody": "Ausführliche Informationen zur Verarbeitung personenbezogener Daten werden hier in Kürze veröffentlicht. Bei Fragen erreichen Sie uns über unsere Kontaktwege.",
+    "eyebrow": "Davetio · Rechtliches",
+    "backHome": "Zur Startseite",
+    "privacyTitle": "Datenschutzerklärung",
+    "privacyIntro": "Wir verarbeiten personenbezogene Daten im Einklang mit der DSGVO und geltendem Recht – transparent, zweckgebunden und datensparsam.",
+    "privacySections": [
+      {
+        "title": "Verantwortliche Stelle / Kontakt",
+        "body": "Firmen- und Adressangaben finden Sie auf Ihrer Bestellbestätigung und Rechnung.\n\nAnfragen nach DSGVO sowie Datenschutzanfragen: hello@davetio.com (ggf. Identitätsprüfung mit minimalen Zusatzinformationen)."
+      },
+      {
+        "title": "Welche Daten verarbeiten wir?",
+        "body": "Zur Vertragserfüllung u. a. Kontakt- und Rechnungsdaten, Zahlungsstatus über den Zahlungsdienstleister (Kartendaten speichern wir nicht), Inhalte Ihrer Einladung und gewählte Vorlagen; zu Sicherheitszwecken begrenzte technische Protokolldaten."
+      },
+      {
+        "title": "Zwecke und Rechtsgrundlagen",
+        "body": "Vertragsdurchführung, berechtigtes Interesse (Sicherheit, Servicequalität), Einwilligung (z. B. Marketing nur mit Zustimmung) sowie gesetzliche Pflichten."
+      },
+      {
+        "title": "Speicherung und Sicherheit",
+        "body": "Wir setzen verschlüsselte Verbindungen und Zugriffskontrollen ein. Löschung oder Einschränkung erfolgt nach Ablauf gesetzlicher Fristen bzw. im Rahmen Ihrer Rechte, soweit dem keine Aufbewahrungspflichten entgegenstehen."
+      },
+      {
+        "title": "Ihre Rechte",
+        "body": "Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Widerspruch und – wo anwendbar – Datenportabilität. Antworten erfolgen in angemessenen Fristen."
+      }
+    ],
     "termsTitle": "Nutzungsbedingungen",
-    "termsBody": "Die Bedingungen zur Nutzung des Angebots werden hier in Kürze veröffentlicht.",
-    "backHome": "Zur Startseite"
+    "termsIntro": "Mit der Nutzung von Davetio erkennen Sie die folgenden Regelungen an.",
+    "termsSections": [
+      {
+        "title": "Leistungsumfang",
+        "body": "Davetio bietet digitale Einladungen, Vorschau, Sharing und ergänzende Funktionen je nach gebuchtem Paket."
+      },
+      {
+        "title": "Pflichten der Nutzer",
+        "body": "Sie sind für die Richtigkeit Ihrer Inhalte verantwortlich und sichern zu, keine Rechte Dritter zu verletzen. Missbrauch, rechtswidrige Inhalte oder sicherheitsgefährdendes Verhalten sind untersagt."
+      },
+      {
+        "title": "Geistiges Eigentum",
+        "body": "Vorlagen, Software und Markenelemente unterliegen Schutzrechten. Über die Personalisierung hinaus ist eine Vervielfältigung oder kommerzielle Nutzung ohne Zustimmung untersagt."
+      },
+      {
+        "title": "Haftungsbeschränkung",
+        "body": "Die Leistung erfolgt „wie besehen“. Für höhere Gewalt, Ausfälle Dritter oder von Nutzern verursachte Fehler haften wir nicht für mittelbare Schäden über den gezahlten Betrag hinaus (gesetzliche Ausnahmen vorbehalten)."
+      }
+    ],
+    "distanceTitle": "Fernabsatzinformation",
+    "distanceIntro": "Informationspflichten nach Fernabsatzrecht – übersichtlich zusammengefasst.",
+    "distanceSections": [
+      {
+        "title": "Anbieter",
+        "body": "Firmenangaben, MwSt.-ID / Handelsregister: siehe Bestell- und Rechnungsdokumente. E-Mail: hello@davetio.com"
+      },
+      {
+        "title": "Vertragsgegenstand",
+        "body": "Bereitstellung des gewählten digitalen Pakets inkl. in der Leistungsbeschreibung genannter Funktionen; elektronische Erfüllung."
+      },
+      {
+        "title": "Preis und Zahlung",
+        "body": "Der Endpreis wird im Checkout angezeigt. Zahlung erfolgt über eine sichere Zahlungsseite. Steuern und Gebühren erscheinen auf der Rechnung."
+      },
+      {
+        "title": "Widerruf (Rahmen)",
+        "body": "Bei digitalen Inhalten und sofortiger Erfüllung gelten gesetzliche Ausnahmen. Details zu Stornierung und Rückerstattung finden Sie auf unserer Seite „Stornierung & Rückerstattung“."
+      },
+      {
+        "title": "Streitbeilegung",
+        "body": "Zunächst kontaktieren Sie bitte unseren Support. Plattform der EU-Kommission zur OS: https://ec.europa.eu/consumers/odr (wir nehmen optional teil, soweit anwendbar)."
+      }
+    ],
+    "cancellationTitle": "Stornierung & Rückerstattung",
+    "cancellationIntro": "Faire, nachvollziehbare Regeln für Stornierung und Rückerstattung.",
+    "cancellationSections": [
+      {
+        "title": "Vor Zahlung",
+        "body": "Sie können Ihren Warenkorb und Ihr Paket vor Abschluss der Zahlung frei anpassen."
+      },
+      {
+        "title": "Digitale Lieferung",
+        "body": "Nach Beginn der personalisierten digitalen Bereitstellung ist eine Rückerstattung regelmäßig ausgeschlossen, soweit gesetzliche Ausnahmen für digitale Inhalte greifen. Bei technischer Nicht-Erfüllung prüfen wir Einzelfälle."
+      },
+      {
+        "title": "Support",
+        "body": "Technische Störungen haben Vorrang – wir beheben sie, sobald möglich."
+      },
+      {
+        "title": "Kontakt",
+        "body": "Anfragen zu Stornierung oder Rückerstattung an hello@davetio.com mit Bestellreferenz."
+      }
+    ]
   },
   "Panel": {
     "title": "RSVP-Panel",
@@ -407,8 +492,8 @@
     "phVenueAddress": "Straße, PLZ, Stadt",
     "phMapsLink": "https://maps.google.com/...",
     "phPhone": "151 23456789",
-    "exampleBride": "Anna Müller",
-    "exampleGroom": "Jonas Schmidt",
+    "exampleBride": "Selda",
+    "exampleGroom": "Furkan",
     "exampleVenue": "Festsaal Riverside",
     "exampleAddress": "Spreeufer 12\n10178 Berlin",
     "exampleDateLabel": "12. September 2026 · 18:00",
@@ -471,16 +556,14 @@
       "faq": "FAQ",
       "panel": "RSVP-Panel",
       "more": "Mehr",
-      "ctaCreate": "Einladung erstellen",
-      "demoInvite": "Mobile Einladungs-Demo"
+      "ctaCreate": "Einladung erstellen"
     },
     "blogTeaser": "Der Blog startet bald — Tipps und Vorlagen-Geschichten folgen.",
     "hero": {
       "eyebrow": "Edle digitale Einladungen",
       "headline": "Gestalten Sie die Einladung Ihrer Träume",
       "scriptLine": "Für Ihren besonderen Tag",
-      "ctaPrimary": "Kostenlos erstellen",
-      "ctaDemo": "Gästeerlebnis ansehen (Demo)"
+      "ctaPrimary": "Kostenlos erstellen"
     },
     "heroSlider": {
       "collectionLine": "Kuratierte Kollektion",
@@ -508,6 +591,26 @@
       "title": "Preise",
       "body": "Aktuell ein Paket: 29 € — alle angezeigten Beträge sind in Euro. Alle Premium-Funktionen und Anpassungen inklusive. Die Bezahlung erfolgt sicher im Checkout; die konkret angebotenen Zahlungsarten sehen Sie zum Zeitpunkt der Bestellung."
     },
+    "shopier": {
+      "buyCta": "Kaufen",
+      "planLabel": "Davetio Premium",
+      "formTitle": "Kontaktdaten für die Zahlung",
+      "firstName": "Vorname",
+      "lastName": "Nachname",
+      "email": "E-Mail",
+      "phone": "Telefon (z. B. 491234567890)",
+      "address": "Rechnungsadresse",
+      "city": "Stadt",
+      "country": "Land",
+      "postcode": "PLZ",
+      "submit": "Weiter zum sicheren Checkout",
+      "cancel": "Abbrechen",
+      "loading": "Weiterleitung zur Shopier-Zahlungsseite…",
+      "error": "Zahlung konnte nicht gestartet werden. Bitte prüfen Sie die Angaben.",
+      "errorPageTitle": "Zahlung nicht abgeschlossen",
+      "errorPageBody": "Die Transaktion wurde abgebrochen oder nicht bestätigt. Sie können es erneut versuchen oder den Support kontaktieren.",
+      "errorPageCta": "Zur Startseite"
+    },
     "features": {
       "title": "Vorteile auf einen Blick",
       "subtitle": "Rundum stimmiges Gästeerlebnis, übersichtlich für Sie.",
@@ -525,7 +628,7 @@
         {
           "icon": "shieldCheck",
           "title": "Sichere Zahlung",
-          "desc": "Bezahlung sicher im Checkout; Daten mit Supabase geschützt."
+          "desc": "Zahlungsdaten werden nur beim Zahlungsdienst verarbeitet; Betrieb sicher gehostet."
         }
       ]
     },
@@ -582,8 +685,9 @@
       ]
     },
     "templates": {
-      "title": "Vorlagen-Galerie",
-      "subtitle": "Nach Kategorie filtern; zur Detailseite oder in die Vorschau wechseln.",
+      "kicker": "Kuration",
+      "title": "Einladungskatalog",
+      "subtitle": "Jede Vorlage erscheint als elegante Karte mit sanften Goldakzenten — filtern, live ansehen und personalisieren.",
       "preview": "Vorschau",
       "viewProduct": "Produkt ansehen",
       "items": [
@@ -596,8 +700,8 @@
           "image": "/images/templates/serenade-hall.png",
           "imageAlt": "Vorlage Stern der Liebe — Einladungsvorschau mit Beispielnamen und Datum",
           "cardEyebrow": "Zur Hochzeit",
-          "cardCouple": "Mara & Leon",
-          "cardDate": "14. Juni 2026",
+          "cardCouple": "Selda & Furkan",
+          "cardDate": "20. September 2026",
           "priceStrike": "249 €",
           "priceCurrent": "29 €"
         },
@@ -704,7 +808,7 @@
     "previewModal": {
       "close": "Schließen",
       "swipe": "Wischen",
-      "inviteLiveHint": "Stimmungsvideo stumm im Hintergrund (auch auf dem Smartphone). Eigenes Video per `.env` oder `videoSrc` in der Vorlage. Vollbild unter «Video».",
+      "inviteLiveHint": "Stimmungsvideo läuft stumm im Hintergrund; Vollbild unter «Video». Beispielnamen und Ort je nach Vorlage.",
       "subtitle": "Davetio Vorschau",
       "tabInvite": "Live-Vorschau",
       "tabVideo": "Video",

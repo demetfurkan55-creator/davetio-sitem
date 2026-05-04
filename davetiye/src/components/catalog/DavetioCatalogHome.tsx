@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 import { useMemo, useState } from "react";
 import { Link } from "@/i18n/navigation";
-import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { DavetioMark } from "@/components/branding/DavetioMark";
 import { DavetiyeTemplateCard } from "@/components/davetio/DavetiyeTemplateCard";
 import { AmbientPhotoBackdrop } from "@/components/ui/AmbientPhotoBackdrop";
@@ -61,7 +60,6 @@ export function DavetioCatalogHome() {
               <span className="text-seal-gold">.</span>
             </span>
           </Link>
-          <LocaleSwitcher />
         </div>
       </header>
 

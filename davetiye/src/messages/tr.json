@@ -4,11 +4,96 @@
     "description": "Davetio ile düğün ve resmi nikah davetiyenizi dakikalar içinde oluşturun — LCV, harita ve paylaşıma hazır bağlantı."
   },
   "Legal": {
-    "privacyTitle": "Gizlilik",
-    "privacyBody": "Kişisel verilerin işlenmesine ilişkin ayrıntılı metin yakında burada yayınlanacaktır. Sorularınız için iletişim kanallarımız üzerinden bize ulaşabilirsiniz.",
+    "eyebrow": "Davetio · Yasal bilgilendirme",
+    "backHome": "Ana sayfaya dön",
+    "privacyTitle": "Gizlilik politikası",
+    "privacyIntro": "Kişisel verileriniz, 6698 sayılı Kişisel Verilerin Korunması Kanunu (“KVKK”) ve ilgili mevzuata uygun olarak, şeffaflık ve güven ilkeleriyle işlenir.",
+    "privacySections": [
+      {
+        "title": "Veri sorumlusu ve iletişim",
+        "body": "Ticari ünvan ve merkez adres bilgileri sipariş onayı ve fatura belgelerinde yer alır.\n\nKVKK kapsamındaki başvurularınızı hello@davetio.com adresine iletebilirsiniz. Talepler kayıt altına alınır; kimliğinizi teyit etmek amacıyla sınırlı ek bilgi istenebilir."
+      },
+      {
+        "title": "Hangi veriler işlenir?",
+        "body": "Hizmetin sunulması kapsamında; sipariş ve faturalama için iletişim bilgileri, ödeme sağlayıcısı üzerinden işlem durumu (kart verisi sistemlerimizde saklanmaz), davetiye içeriği ve tercih ettiğiniz şablon bilgileri; teknik güvenlik için sınırlı log ve cihaz bilgileri işlenebilir."
+      },
+      {
+        "title": "İşleme amaçları ve hukuki sebepler",
+        "body": "Sözleşmenin ifası, meşru menfaat (hizmet güvenliği ve geliştirme), açık rıza (pazarlama iletişimi yalnızca onayınız varsa) ve kanuni yükümlülükler kapsamında veri işlenir."
+      },
+      {
+        "title": "Saklama ve güvenlik",
+        "body": "Veriler; barındırma ve veritabanı hizmetlerinde şifreli bağlantı ve erişim kontrolleriyle korunur. İlgili süre sonunda veya silme talebiniz hukuki saklama zorunluluklarıyla uyumlu şekilde işlemden geçirilir."
+      },
+      {
+        "title": "Haklarınız",
+        "body": "KVKK kapsamında; erişim, düzeltme, silme, işlemenin kısıtlanması, itiraz ve veri taşınabilirliği haklarınızı kullanabilirsiniz. Başvurularınız makul sürede sonuçlandırılır."
+      }
+    ],
     "termsTitle": "Kullanım koşulları",
-    "termsBody": "Hizmet kullanımına ilişkin koşullar yakında burada yayınlanacaktır.",
-    "backHome": "Ana sayfaya dön"
+    "termsIntro": "Davetio platformunu kullanarak aşağıdaki koşulları okuduğunuzu ve kabul ettiğinizi beyan edersiniz.",
+    "termsSections": [
+      {
+        "title": "Hizmetin kapsamı",
+        "body": "Davetio; dijital davetiye oluşturma, önizleme, paylaşım ve ilgili yardımcı özellikleri ücretli veya tanıtım amaçlı paketler halinde sunar. Özellik seti sipariş anında seçilen pakete göre şekillenir."
+      },
+      {
+        "title": "Kullanıcı yükümlülükleri",
+        "body": "Yüklediğiniz metin, görsel ve iletişim bilgilerinin doğruluğundan ve üçüncü kişi haklarına aykırı olmamasından siz sorumlusunuz. Platformu kötüye kullanım, hukuka aykırı içerik veya güvenliği tehdit eden faaliyetlere izin verilmez."
+      },
+      {
+        "title": "Fikri mülkiyet",
+        "body": "Şablon tasarımları, yazılım ve marka öğeleri Davetio veya lisans verenlere aittir. İçerik kişiselleştirmeniz dışında çoğaltma ve ticari kullanım izin gerektirir."
+      },
+      {
+        "title": "Sorumluluk sınırı",
+        "body": "Hizmet “olduğu gibi” sunulur. Mücbir sebepler, üçüncü taraf altyapı kesintileri veya kullanıcı kaynaklı hatalardan doğan dolaylı zararlardan Davetio’nun sorumluluğu, ödediğiniz ücretle sınırlıdır (kanunun zorunlu kıldığı haller hariç)."
+      }
+    ],
+    "distanceTitle": "Mesafeli satış sözleşmesi",
+    "distanceIntro": "Bu metin; 6502 sayılı Tüketicinin Korunması Hakkında Kanun ve Mesafeli Sözleşmeler Yönetmeliği çerçevesinde bilgilendirme amaçlıdır.",
+    "distanceSections": [
+      {
+        "title": "Satıcı bilgileri",
+        "body": "Ünvan: Davetio\nAdres: İstanbul, Türkiye\nE-posta: hello@davetio.com\nMERSİS / vergi bilgisi: sipariş onayı ve fatura üzerinde yer alır."
+      },
+      {
+        "title": "Sözleşmenin konusu",
+        "body": "Sözleşme; seçtiğiniz dijital davetiye paketinin sunulması, erişim bağlantısı ve paket kapsamında tanımlanan özellikleri kapsar. Hizmet elektronik ortamda ifa edilir."
+      },
+      {
+        "title": "Bedel ve ödeme",
+        "body": "Toplam bedel, sipariş özetinde gösterilen tutardır. Ödeme; güvenli ödeme sayfası üzerinden kanuni düzenlemelere uygun şekilde tahsil edilir. Vergi ve kesintiler fatura üzerinde ayrı gösterilir."
+      },
+      {
+        "title": "Cayma hakkı (genel çerçeve)",
+        "body": "Dijital içerik ve anında ifa edilen hizmetlerde cayma hakkı istisnaları mevzuatta düzenlenmiştir. Kişiselleştirilmiş dijital teslimat başladıysa veya açık rızanızla ifa hemen gerçekleştiyse cayma hakkı kullanılamayabilir; ayrıntılar için İptal ve İade sayfamıza bakınız."
+      },
+      {
+        "title": "Uyuşmazlıklar",
+        "body": "Tüketici şikayetleri için öncelikle müşteri hizmetlerimizle iletişime geçebilirsiniz. Kanuni süreçler İstanbul (Merkez) tüketici hakem heyeti ve tüketici mahkemeleri için yetkili mercilerde değerlendirilir (mevzuattaki değişiklikler saklıdır)."
+      }
+    ],
+    "cancellationTitle": "İptal ve iade koşulları",
+    "cancellationIntro": "Şeffaf ve öngörülebilir bir deneyim için iptal, iade ve cayma süreçleri aşağıda özetlenmiştir.",
+    "cancellationSections": [
+      {
+        "title": "Siparişten önce",
+        "body": "Ödeme tamamlanmadan önce sepet ve paket seçiminizi dilediğiniz gibi güncelleyebilirsiniz."
+      },
+      {
+        "title": "Dijital teslimat ve kişiselleştirme",
+        "body": "Davetiye yayını veya kişiselleştirilmiş dijital içerik teslimine başlandıktan sonra iade, mesafeli satış mevzuatındaki dijital içerik istisnaları çerçevesinde genellikle mümkün değildir. Teknik arıza veya hizmetin hiç ifa edilmemesi hallerinde ise talebiniz mevzuata uygun şekilde değerlendirilir."
+      },
+      {
+        "title": "Teknik destek ve düzeltme",
+        "body": "Yayın bağlantısı veya panel erişiminde teknik bir sorun oluşması halinde önceliğimiz hatayı gidermek ve hizmeti ifa etmektir."
+      },
+      {
+        "title": "İletişim",
+        "body": "İptal veya iade talepleriniz için hello@davetio.com adresine sipariş numaranız ve iletişim bilgilerinizle yazınız. Başvurular en geç üç iş günü içinde ön değerlendirmeye alınır."
+      }
+    ]
   },
   "Panel": {
     "title": "LCV paneli",
@@ -407,8 +492,8 @@
     "phVenueAddress": "Sokak, ilçe, şehir",
     "phMapsLink": "https://maps.google.com/...",
     "phPhone": "5xx xxx xx xx",
-    "exampleBride": "Ayşe Yılmaz",
-    "exampleGroom": "Mehmet Kaya",
+    "exampleBride": "Selda",
+    "exampleGroom": "Furkan",
     "exampleVenue": "Grand Davet Salonu",
     "exampleAddress": "Vişnezade Mah. Acısu Sok. No:19\nBeşiktaş / İstanbul",
     "exampleDateLabel": "15 Ağustos 2026 · 19:30",
@@ -471,16 +556,14 @@
       "faq": "Sıkça sorulan sorular",
       "panel": "LCV paneli",
       "more": "Diğer",
-      "ctaCreate": "Davet oluştur",
-      "demoInvite": "Mobil davetiye demosu"
+      "ctaCreate": "Davet oluştur"
     },
     "blogTeaser": "Blog çok yakında — ipuçları ve şablon hikâyeleri burada olacak.",
     "hero": {
       "eyebrow": "Şık dijital davetiyeler",
       "headline": "Hayalinizdeki davetiyeyi oluşturun",
       "scriptLine": "En özel gününüz için",
-      "ctaPrimary": "Ücretsiz oluştur",
-      "ctaDemo": "Misafir deneyimini dene (demo)"
+      "ctaPrimary": "Ücretsiz oluştur"
     },
     "heroSlider": {
       "collectionLine": "Küratörlü koleksiyon",
@@ -506,7 +589,27 @@
     ],
     "pricingTeaser": {
       "title": "Fiyatlar",
-      "body": "Şu an tek paket: 999 TL. Tüm premium özellikler ve düzenlemeler dahildir. Ödeme Iyzico güvencesiyle alınır."
+      "body": "Şu an tek paket: 999 TL. Tüm premium özellikler ve düzenlemeler dahildir. Ödeme, güvenli ödeme altyapısı üzerinden SSL ile tahsil edilir."
+    },
+    "shopier": {
+      "buyCta": "Satın al",
+      "planLabel": "Davetio Premium",
+      "formTitle": "Ödeme için iletişim bilgileri",
+      "firstName": "Ad",
+      "lastName": "Soyad",
+      "email": "E-posta",
+      "phone": "Telefon (örn. 905551234567)",
+      "address": "Fatura adresi",
+      "city": "İl / ilçe",
+      "country": "Ülke",
+      "postcode": "Posta kodu",
+      "submit": "Güvenli ödemeye geç",
+      "cancel": "Vazgeç",
+      "loading": "Shopier ödeme sayfasına yönlendiriliyor…",
+      "error": "Ödeme başlatılamadı. Bilgileri kontrol edip tekrar deneyin.",
+      "errorPageTitle": "Ödeme tamamlanamadı",
+      "errorPageBody": "İşlem iptal edildi veya onaylanmadı. Tekrar deneyebilir veya destek ile iletişime geçebilirsiniz.",
+      "errorPageCta": "Ana sayfaya dön"
     },
     "features": {
       "title": "Özet avantajlar",
@@ -525,7 +628,7 @@
         {
           "icon": "shieldCheck",
           "title": "Güvenli ödeme",
-          "desc": "Iyzico ile ödeme; veriler Supabase ile korunur."
+          "desc": "Kart bilgileriniz yalnızca ödeme altyapısında işlenir; operasyonel veriler güvenli barındırmada tutulur."
         }
       ]
     },
@@ -582,8 +685,9 @@
       ]
     },
     "templates": {
-      "title": "Şablon vitrin",
-      "subtitle": "Kategoriye göre filtreleyin; karttan detaya gidin veya önizlemeyi açın.",
+      "kicker": "Kürasyon",
+      "title": "Davetiye Katalogu",
+      "subtitle": "Düğünden nikâha, her şablon suluboya dokunuşlu bir kart olarak sunulur — filtreleyin, önizleyin, kendi hikâyenizi oluşturun.",
       "preview": "Önizle",
       "viewProduct": "Ürünü Gör",
       "items": [
@@ -596,8 +700,8 @@
           "image": "/images/templates/serenade-hall.png",
           "imageAlt": "Sonsuz Aşk şablonu — örnek isim ve tarihli davetiye önizlemesi",
           "cardEyebrow": "Düğünümüze",
-          "cardCouple": "Deniz & Ece",
-          "cardDate": "14 Haziran 2026",
+          "cardCouple": "Selda & Furkan",
+          "cardDate": "20 Eylül 2026",
           "priceStrike": "₺4.999",
           "priceCurrent": "₺999"
         },
@@ -704,7 +808,7 @@
     "previewModal": {
       "close": "Kapat",
       "swipe": "Kaydır",
-      "inviteLiveHint": "Arka planda sessiz atmosfer videosu (mobilde de oynar). Kendi klibinizi `.env` ile veya şablonda `videoSrc` ile verebilirsiniz. Tam ekran için «Video» sekmesi.",
+      "inviteLiveHint": "Arka planda sessiz atmosfer videosu oynar; tam görüntü için «Video» sekmesine geçin. Örnek isim ve konum şablona göre değişir.",
       "subtitle": "Davetio önizleme",
       "tabInvite": "Canlı önizleme",
       "tabVideo": "Video",

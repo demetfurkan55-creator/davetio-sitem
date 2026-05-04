@@ -1,10 +1,10 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Calendar, Clock, Globe, MapPin, Music, Navigation } from "lucide-react";
 import { Link } from "@/i18n/navigation";
 import { useEffect, useRef, useState } from "react";
-import { INVITE_MAP_STATIC_URL } from "@/lib/invite-assets";
+import { getTemplatePreviewDemo } from "@/lib/template-preview-demo";
 import { cn } from "@/lib/utils";
 
 const featureIcons = [Clock, Music, Globe, Calendar] as const;
@@ -24,6 +24,8 @@ export function TemplateDetailClient({
   intro: string;
   ambientVideoSrc: string;
 }) {
+  const locale = useLocale();
+  const mapDemo = getTemplatePreviewDemo(slug, locale);
   const t = useTranslations("TemplateDetail");
   const packages = t.raw("packages") as { id: string; label: string }[];
   const features = t.raw("features") as string[];
@@ -70,16 +72,25 @@ export function TemplateDetailClient({
                 <span>{t("sampleVenue")}</span>
               </p>
               <div className="mx-auto mt-4 w-full max-w-[280px] overflow-hidden rounded-xl border border-white/25 shadow-lg">
-                <img
-                  src={INVITE_MAP_STATIC_URL}
-                  alt=""
-                  className="h-16 w-full object-cover object-center sm:h-[4.5rem]"
-                  loading="lazy"
-                />
-                <div className="flex items-center justify-center gap-2 bg-white/95 px-2 py-2 text-[0.62rem] font-semibold uppercase tracking-wide text-ink">
+                <div className="relative h-[4.25rem] w-full overflow-hidden sm:h-[4.75rem]">
+                  <iframe
+                    title=""
+                    src={mapDemo.mapEmbedUrl}
+                    className="absolute inset-0 h-[120%] w-full -translate-y-[10%] border-0"
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                  />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
+                </div>
+                <a
+                  href={mapDemo.mapsOpenUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-2 bg-white/95 px-2 py-2 text-[0.62rem] font-semibold uppercase tracking-wide text-ink transition hover:bg-white"
+                >
                   <Navigation className="size-3.5 shrink-0 text-sky-600" aria-hidden />
                   {t("sampleMapsCta")}
-                </div>
+                </a>
               </div>
             </div>
           </div>

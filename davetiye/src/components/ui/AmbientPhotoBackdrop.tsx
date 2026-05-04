@@ -24,7 +24,7 @@ export function AmbientPhotoBackdrop({
     <div className={cn("pointer-events-none", pos, className)} aria-hidden>
       <div
         className={cn(
-          "absolute inset-0 bg-cover bg-center opacity-[0.065] sm:opacity-[0.078]",
+          "davetio-ambient-photo-bg absolute inset-0 bg-cover bg-center opacity-[0.072] sm:opacity-[0.085]",
           imageClassName,
         )}
         style={{ backgroundImage: `url(${src})` }}

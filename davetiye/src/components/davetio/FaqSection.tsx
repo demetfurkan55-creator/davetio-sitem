@@ -60,7 +60,7 @@ export function FaqSection({ items }: { items: FaqItem[] }) {
                     />
                   </button>
                   {isOpen ? (
-                    <p className="border-t border-black/[0.06] px-5 pb-5 pt-3 text-sm leading-relaxed text-muted sm:px-6">
+                    <p className="davetio-faq-answer border-t border-black/[0.06] px-5 pb-5 pt-3 text-sm leading-relaxed text-muted sm:px-6">
                       {item.a}
                     </p>
                   ) : null}

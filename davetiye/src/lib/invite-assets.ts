@@ -1,6 +1,12 @@
-/** OSM tabanlı statik harita önizlemesi (API anahtarı gerekmez). İstanbul merkez. */
-export const INVITE_MAP_STATIC_URL =
-  "https://staticmap.openstreetmap.de/staticmap.php?center=41.0422,29.0081&zoom=14&size=640x220&maptype=mapnik";
+/**
+ * Canlı harita önizlemesi (iframe) — `staticmap.openstreetmap.de` img sık kırıldığı için
+ * OSM embed kullanılır; tıklama Google Haritalar’da açılır.
+ */
+export const INVITE_MAP_EMBED_TR =
+  "https://www.openstreetmap.org/export/embed.html?bbox=28.992%2C41.034%2C29.024%2C41.052&layer=mapnik";
+
+export const INVITE_MAP_EMBED_DE =
+  "https://www.openstreetmap.org/export/embed.html?bbox=13.38%2C52.50%2C13.45%2C52.54&layer=mapnik";
 
 /** WhatsApp / link önizlemesi mock — düğün temalı */
 export const SHARE_CARD_PREVIEW_URL =
