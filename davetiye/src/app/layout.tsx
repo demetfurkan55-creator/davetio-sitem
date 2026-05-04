@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Caveat, DM_Sans, Fraunces, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -30,6 +30,12 @@ export const metadata: Metadata = {
   description: "Premium dijital davetiye platformu",
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,7 +47,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${dmSans.variable} ${geistMono.variable} ${display.variable} ${accentScript.variable} h-full scroll-smooth antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-canvas text-ink font-sans">
+      <body className="flex min-h-[100dvh] min-h-full flex-col bg-canvas text-ink font-sans">
         {children}
       </body>
     </html>

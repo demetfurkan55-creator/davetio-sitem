@@ -72,6 +72,8 @@
 
 html {
   scroll-padding-top: 6.25rem;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 @media (min-width: 1024px) {
@@ -84,6 +86,12 @@ body {
   background-color: var(--color-canvas);
   color: var(--color-ink);
   font-family: var(--font-sans);
+  overflow-x: clip;
+  -webkit-tap-highlight-color: color-mix(in srgb, var(--color-brand) 18%, transparent);
+}
+
+/* Hero coverflow — küçük ekranda yatay taşmayı kes */
+.hero-coverflow-clip {
   overflow-x: clip;
 }
 
@@ -435,5 +443,9 @@ body {
   .hero-coverflow-nav {
     width: 2.25rem;
     height: 2.25rem;
+  }
+
+  .hero-coverflow-swiper .swiper-slide {
+    width: min(88vw, 520px);
   }
 }

@@ -36,7 +36,7 @@ export function FloatingHelp() {
         />
       ) : null}
 
-      <div className="fixed bottom-5 right-5 z-40 flex flex-col items-end gap-3 sm:bottom-8 sm:right-8">
+      <div className="fixed bottom-[max(1.25rem,env(safe-area-inset-bottom,0px))] right-[max(1.25rem,env(safe-area-inset-right,0px))] z-40 flex flex-col items-end gap-3 sm:bottom-8 sm:right-8">
         {open ? (
           <div
             role="dialog"

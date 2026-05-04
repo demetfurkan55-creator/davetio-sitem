@@ -52,8 +52,8 @@ export function DavetioCatalogHome() {
         src={SITE_AMBIENT.gardenArches}
         overlayClassName="bg-gradient-to-b from-canvas/90 via-canvas/78 to-canvas/94"
       />
-      <header className="sticky top-0 z-40 border-b border-ink/[0.06] bg-canvas/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6 lg:px-8">
+      <header className="sticky top-0 z-40 border-b border-ink/[0.06] bg-canvas/90 pt-[env(safe-area-inset-top,0px)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl min-w-0 items-center justify-between gap-3 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3 lg:px-8">
           <Link href="/" className="group flex items-center gap-2.5">
             <DavetioMark size={36} variant="romantic" className="transition-transform duration-300 group-hover:rotate-[-4deg]" />
             <span className="font-display text-lg font-semibold tracking-tight sm:text-xl">

@@ -55,7 +55,7 @@ export function DavetiyeTemplateCard({
           src={src}
           alt={imageAlt}
           fill
-          sizes="(max-width: 640px) 50vw, 33vw"
+          sizes="(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 25vw"
           className="object-cover object-center transition-transform duration-500 ease-out group-hover:scale-[1.03]"
         />
         <span className="absolute left-2.5 top-2.5 z-[1] rounded-md bg-sage-deep px-2 py-1 text-[0.62rem] font-bold uppercase tracking-[0.12em] text-white shadow-sm sm:text-[0.65rem]">

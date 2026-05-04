@@ -374,17 +374,19 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
     <div
       className={`relative min-h-[100dvh] bg-gradient-to-b from-canvas via-[#faf9f7] to-canvas-muted ${done ? "" : "pb-28"}`}
     >
-      <header className="sticky top-0 z-40 border-b border-ink/[0.06] bg-canvas/93 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-xl items-center justify-between gap-3 px-4 py-3 sm:px-6">
+      <header className="sticky top-0 z-40 border-b border-ink/[0.06] bg-canvas/93 pt-[env(safe-area-inset-top,0px)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-xl min-w-0 items-center justify-between gap-2 px-3 py-2.5 sm:gap-3 sm:px-6 sm:py-3">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 text-sm font-semibold text-brand transition-colors hover:text-brand-hover"
+            className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-brand transition-colors hover:text-brand-hover sm:gap-2"
           >
             <ArrowLeft className="size-4 shrink-0" aria-hidden />
             <span className="hidden sm:inline">{t("backHome")}</span>
           </Link>
-          <span className="font-display text-center text-sm font-semibold tracking-tight text-ink">{t("studioLabel")}</span>
-          <span className="min-w-[3rem] text-right text-xs font-bold tabular-nums text-brand">{progressPct}%</span>
+          <span className="line-clamp-2 min-w-0 flex-1 px-1 text-center font-display text-xs font-semibold leading-tight tracking-tight text-ink sm:text-sm">
+            {t("studioLabel")}
+          </span>
+          <span className="shrink-0 min-w-[2.75rem] text-right text-xs font-bold tabular-nums text-brand">{progressPct}%</span>
         </div>
         <div className="h-[3px] bg-ink/10">
           <div
@@ -394,9 +396,9 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
         </div>
       </header>
 
-      <div className="mx-auto max-w-xl px-4 pb-10 pt-6 sm:px-6 sm:pb-14">
-      <div className="overflow-hidden rounded-[2rem] border border-ink/[0.08] bg-white shadow-[0_24px_70px_-36px_rgba(22,24,20,0.22)] ring-1 ring-white/70">
-        <div className="border-b border-ink/[0.06] bg-canvas-muted/80 px-6 py-5">
+      <div className="mx-auto max-w-xl px-3 pb-10 pt-4 sm:px-6 sm:pb-14 sm:pt-6">
+      <div className="overflow-hidden rounded-[1.35rem] border border-ink/[0.08] bg-white shadow-[0_24px_70px_-36px_rgba(22,24,20,0.22)] ring-1 ring-white/70 sm:rounded-[2rem]">
+        <div className="border-b border-ink/[0.06] bg-canvas-muted/80 px-4 py-4 sm:px-6 sm:py-5">
           <p className="text-center text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-muted">
             {t("flowProgress", { current: Math.min(flowStep + 1, TOTAL_STEPS), total: TOTAL_STEPS })}
           </p>
@@ -417,7 +419,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
           </div>
         </div>
 
-        <div className="p-6 sm:p-8">
+        <div className="p-4 sm:p-8">
           {flowStep >= FORM_START ? (
             <>
               <h1 className="font-display text-2xl font-semibold text-ink">{t("title")}</h1>

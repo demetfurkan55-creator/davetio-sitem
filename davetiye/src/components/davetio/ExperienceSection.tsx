@@ -128,7 +128,7 @@ function Visual({
           <p className="relative z-[1] text-[0.6rem] font-bold uppercase tracking-widest text-amber-900/85 drop-shadow-sm">
             Geri sayım
           </p>
-          <div className="relative z-[1] mt-3 flex gap-2 sm:gap-3">
+          <div className="relative z-[1] mt-3 flex max-w-full flex-wrap justify-center gap-1.5 sm:gap-3">
             {[
               ["45", "gün"],
               ["12", "sa"],
@@ -137,10 +137,10 @@ function Visual({
             ].map(([n, u]) => (
               <div
                 key={u}
-                className="rounded-xl border border-white/70 bg-white/92 px-2.5 py-2 text-center shadow-md backdrop-blur-sm sm:px-3"
+                className="min-w-[3.25rem] rounded-xl border border-white/70 bg-white/92 px-2 py-1.5 text-center shadow-md backdrop-blur-sm sm:min-w-0 sm:px-3 sm:py-2"
               >
-                <div className="font-display text-xl font-medium text-ink sm:text-2xl">{n}</div>
-                <div className="text-[0.55rem] uppercase text-muted">{u}</div>
+                <div className="font-display text-lg font-medium text-ink sm:text-2xl">{n}</div>
+                <div className="text-[0.5rem] uppercase text-muted sm:text-[0.55rem]">{u}</div>
               </div>
             ))}
           </div>
