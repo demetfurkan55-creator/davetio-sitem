@@ -15,7 +15,7 @@ export default async function OlusturPage({
   setRequestLocale(locale);
 
   return (
-    <div className="relative min-h-full overflow-hidden bg-canvas">
+    <div className="relative min-h-full w-full max-w-[100vw] overflow-x-hidden bg-canvas">
       <AmbientPhotoBackdrop
         src={SITE_AMBIENT.linenPaper}
         overlayClassName="bg-gradient-to-b from-canvas/90 via-canvas/76 to-canvas/94"

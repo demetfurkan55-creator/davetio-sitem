@@ -20,13 +20,23 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { memo, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useGeoCurrency } from "@/lib/use-geo-currency";
+import { packagePriceLabel } from "@/lib/vitrine-prices";
 import { resolveInviteVideoUrl } from "@/lib/invite-ambient-video";
 import { getTemplatePreviewDemo } from "@/lib/template-preview-demo";
 import { resolveTemplateHeroImage } from "@/lib/template-preview-images";
 import { HeroFlyingHearts } from "@/components/landing/HeroFlyingHearts";
-import { InvitationPreviewStage } from "@/components/davetio/InvitationPreviewStage";
+import {
+  InvitationPreviewStage,
+  type InvitationPreviewStageProps,
+} from "@/components/davetio/InvitationPreviewStage";
+import {
+  INVITATION_MAP_SLIDE_INDEX,
+  type InvitationPreviewHandle,
+} from "@/components/InvitationPreview";
 import {
   loadRsvpGuests,
   saveInvitationDraft,
@@ -54,15 +64,17 @@ type MusicTrack = {
   recommended: boolean;
 };
 
+/** Önizleme için örnek akış — t7–t12 Türkçe seçenekleri (demo kaynak) */
 const AUDIO: Record<string, string> = Object.fromEntries(
-  Array.from({ length: 6 }, (_, i) => {
+  Array.from({ length: 12 }, (_, i) => {
     const n = i + 1;
-    return [
-      `t${n}`,
-      `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-${n}.mp3`,
-    ] as const;
+    return [`t${n}`, `https://www.soundhelix.com/examples/mp3/SoundHelix-Song-${n}.mp3`] as const;
   }),
 );
+
+const INPUT_FIELD =
+  "mt-2 min-h-[3.25rem] w-full rounded-xl border border-ink/12 bg-canvas px-4 py-3.5 text-base leading-normal outline-none transition-[box-shadow,border-color] ring-wine/20 focus:border-wine/35 focus:ring-2";
+const TEXTAREA_FIELD = `${INPUT_FIELD} min-h-[6rem] resize-none`;
 
 type Props = {
   templateSlug?: string | null;
@@ -86,6 +98,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
   const searchParams = useSearchParams();
   const tracks = t.raw("musicTracks") as MusicTrack[];
   const flowTitles = t.raw("flowStepTitles") as string[];
+  const { currency } = useGeoCurrency();
 
   const [flowStep, setFlowStep] = useState(0);
   const [eventType, setEventType] = useState<EventKind | null>(null);
@@ -202,6 +215,44 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
     [demoTemplate, locale],
   );
 
+  const previewRef = useRef<InvitationPreviewHandle | null>(null);
+
+  const studioLivePreviewProps = useMemo((): InvitationPreviewStageProps => {
+    return {
+      variant: "studio",
+      theme: activeTemplateFilterId,
+      showTemplateFooter: false,
+      videoSrc,
+      previewEyebrow: t("previewEyebrow"),
+      previewNames: `${brideLive} & ${groomLive}`,
+      previewTagline: t("previewTagline"),
+      previewDate: displayWhen ?? t("exampleDateLabel"),
+      previewVenue:
+        (venueName.trim() || t("exampleVenue")) +
+        " · " +
+        (venueAddress.trim() || t("exampleAddress")).replace(/\n/g, ", "),
+      previewMapsCta: mapsLink.trim() ? `${t("mapsPreviewCta")} ✓` : t("mapsPreviewCta"),
+      mapEmbedUrl: studioPreviewDemo.mapEmbedUrl,
+      mapsOpenUrl: mapsLink.trim() || studioPreviewDemo.mapsOpenUrl,
+      templateName: meta,
+      heroImage: heroImageStudio,
+      startUnlocked: true,
+    };
+  }, [
+    activeTemplateFilterId,
+    videoSrc,
+    t,
+    brideLive,
+    groomLive,
+    displayWhen,
+    venueName,
+    venueAddress,
+    mapsLink,
+    studioPreviewDemo,
+    meta,
+    heroImageStudio,
+  ]);
+
   const hydrated = useRef(false);
   useEffect(() => {
     if (hydrated.current) return;
@@ -223,6 +274,17 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
   }, [templateDemoSlug]);
+
+  useEffect(() => {
+    if (flowStep !== 5) return;
+    const hasVenue =
+      venueName.trim().length > 0 || venueAddress.trim().length > 0 || mapsLink.trim().length > 0;
+    if (!hasVenue) return;
+    const id = window.setTimeout(() => {
+      previewRef.current?.scrollToSlide(INVITATION_MAP_SLIDE_INDEX, "smooth");
+    }, 280);
+    return () => window.clearTimeout(id);
+  }, [flowStep, venueName, venueAddress, mapsLink]);
 
   const stopAudio = useCallback(() => {
     if (audioRef.current) {
@@ -264,7 +326,9 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
   }
 
   function validateNames() {
-    if (!bride.trim() || !groom.trim()) {
+    const b = bride.trim();
+    const g = groom.trim();
+    if (b.length < 2 || g.length < 2 || b.length > 100 || g.length > 100) {
       setErr(t("required"));
       return false;
     }
@@ -272,13 +336,14 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
   }
 
   function validateVenue() {
+    const phoneDigits = phone.replace(/\D/g, "");
     if (
       !eventDate ||
       !eventTime ||
       !venueName.trim() ||
       !venueAddress.trim() ||
       !phone.trim() ||
-      phone.replace(/\D/g, "").length < 10
+      phoneDigits.length < 10
     ) {
       setErr(t("required"));
       return false;
@@ -467,7 +532,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
 
   return (
     <div
-      className={`relative min-h-[100dvh] bg-gradient-to-b from-canvas via-[#faf9f7] to-canvas-muted ${done ? "" : "pb-28"}`}
+      className={`relative min-h-[100dvh] w-full max-w-[100vw] min-w-0 overflow-x-hidden bg-gradient-to-b from-canvas via-[#faf9f7] to-canvas-muted ${done ? "" : "pb-28"}`}
     >
       <header className="sticky top-0 z-40 border-b border-ink/[0.06] bg-canvas/93 pt-[env(safe-area-inset-top,0px)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-xl min-w-0 items-center justify-between gap-2 px-3 py-2.5 sm:gap-3 sm:px-6 sm:py-3">
@@ -491,7 +556,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
         </div>
       </header>
 
-      <div className="mx-auto max-w-xl px-3 pb-10 pt-4 sm:px-6 sm:pb-14 sm:pt-6">
+      <div className="mx-auto w-full min-w-0 max-w-xl px-4 pb-10 pt-4 sm:px-6 sm:pb-14 sm:pt-6">
       <div className="overflow-hidden rounded-[1.35rem] border border-ink/[0.08] bg-white shadow-[0_24px_70px_-36px_rgba(22,24,20,0.22)] ring-1 ring-white/70 sm:rounded-[2rem]">
         <div className="border-b border-ink/[0.06] bg-canvas-muted/80 px-4 py-4 sm:px-6 sm:py-5">
           <p className="text-center text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-muted">
@@ -515,6 +580,14 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
         </div>
 
         <div className="p-4 sm:p-8">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={flowStep}
+              initial={{ opacity: 0, x: 28 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -22 }}
+              transition={{ duration: 0.34, ease: [0.22, 1, 0.36, 1] }}
+            >
           {flowStep >= FORM_START ? (
             <>
               <h1 className="font-display text-2xl font-semibold text-ink">{t("title")}</h1>
@@ -604,14 +677,14 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                 {(
                   [
-                    { id: "pkg_solo_wedding", label: "bundleSoloWedding", price: "bundleSoloWeddingPrice" },
-                    { id: "pkg_wedding_nikah", label: "bundleWeddingNikah", price: "bundleWeddingNikahPrice" },
-                    { id: "pkg_wedding_henna", label: "bundleWeddingHenna", price: "bundleWeddingHennaPrice" },
-                    { id: "pkg_solo_engagement", label: "bundleSoloEngagement", price: "bundleSoloEngagementPrice" },
-                    { id: "pkg_solo_nikah", label: "bundleSoloNikah", price: "bundleSoloNikahPrice" },
-                    { id: "pkg_solo_henna", label: "bundleSoloHenna", price: "bundleSoloHennaPrice" },
+                    { id: "pkg_solo_wedding", label: "bundleSoloWedding" },
+                    { id: "pkg_wedding_nikah", label: "bundleWeddingNikah" },
+                    { id: "pkg_wedding_henna", label: "bundleWeddingHenna" },
+                    { id: "pkg_solo_engagement", label: "bundleSoloEngagement" },
+                    { id: "pkg_solo_nikah", label: "bundleSoloNikah" },
+                    { id: "pkg_solo_henna", label: "bundleSoloHenna" },
                   ] as const
-                ).map(({ id, label, price }) => {
+                ).map(({ id, label }) => {
                   const sel = selectedPkg === id;
                   return (
                     <button
@@ -631,7 +704,9 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         </span>
                       ) : null}
                       <span className="font-display text-[0.95rem] font-semibold text-ink">{t(label)}</span>
-                      <span className="mt-2 text-sm font-bold tabular-nums text-muted">{t(price)}</span>
+                      <span className="mt-2 text-sm font-bold tabular-nums text-muted">
+                        {packagePriceLabel(id, currency)}
+                      </span>
                     </button>
                   );
                 })}
@@ -697,28 +772,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                 </p>
                 <p className="mt-1.5 text-[0.7rem] leading-snug text-muted">{t("studioPreviewHint")}</p>
               </div>
-              <InvitationPreviewStage
-                variant="studio"
-                theme={activeTemplateFilterId}
-                showTemplateFooter={false}
-                videoSrc={videoSrc}
-                previewEyebrow={t("previewEyebrow")}
-                previewNames={`${brideLive} & ${groomLive}`}
-                coupleFirstName={brideLive}
-                coupleSecondName={groomLive}
-                previewTagline={t("previewTagline")}
-                previewDate={displayWhen ?? t("exampleDateLabel")}
-                previewVenue={
-                  (venueName.trim() || t("exampleVenue")) +
-                  " · " +
-                  (venueAddress.trim() || t("exampleAddress")).replace(/\n/g, ", ")
-                }
-                previewMapsCta={mapsLink.trim() ? `${t("mapsPreviewCta")} ✓` : t("mapsPreviewCta")}
-                mapEmbedUrl={studioPreviewDemo.mapEmbedUrl}
-                mapsOpenUrl={mapsLink.trim() || studioPreviewDemo.mapsOpenUrl}
-                templateName={meta}
-                heroImage={heroImageStudio}
-              />
+              <CreateFlowLivePreview previewRef={previewRef} {...studioLivePreviewProps} />
             </div>
           ) : null}
 
@@ -792,7 +846,9 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         value={bride}
                         onChange={(e) => setBride(e.target.value)}
                         placeholder={t("exampleBride")}
-                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        maxLength={100}
+                        autoComplete="off"
+                        className={INPUT_FIELD}
                       />
                     </label>
                     <label className="text-sm font-semibold text-ink">
@@ -801,7 +857,9 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         value={groom}
                         onChange={(e) => setGroom(e.target.value)}
                         placeholder={t("exampleGroom")}
-                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        maxLength={100}
+                        autoComplete="off"
+                        className={INPUT_FIELD}
                       />
                     </label>
                   </div>
@@ -815,7 +873,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         <input
                           value={bm}
                           onChange={(e) => setBm(e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                          maxLength={120}
+                          className={INPUT_FIELD}
                         />
                       </label>
                       <label className="text-sm text-ink">
@@ -823,7 +882,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         <input
                           value={bf}
                           onChange={(e) => setBf(e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                          maxLength={120}
+                          className={INPUT_FIELD}
                         />
                       </label>
                     </div>
@@ -839,7 +899,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         <input
                           value={gm}
                           onChange={(e) => setGm(e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                          maxLength={120}
+                          className={INPUT_FIELD}
                         />
                       </label>
                       <label className="text-sm text-ink">
@@ -847,7 +908,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         <input
                           value={gf}
                           onChange={(e) => setGf(e.target.value)}
-                          className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                          maxLength={120}
+                          className={INPUT_FIELD}
                         />
                       </label>
                     </div>
@@ -869,7 +931,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         type="date"
                         value={eventDate}
                         onChange={(e) => setEventDate(e.target.value)}
-                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        className={INPUT_FIELD}
                       />
                     </label>
                     <label className="text-sm font-semibold text-ink">
@@ -878,7 +940,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         type="time"
                         value={eventTime}
                         onChange={(e) => setEventTime(e.target.value)}
-                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        className={INPUT_FIELD}
                       />
                     </label>
                   </div>
@@ -892,7 +954,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                       value={venueName}
                       onChange={(e) => setVenueName(e.target.value)}
                       placeholder={t("phVenueName")}
-                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      maxLength={200}
+                      className={INPUT_FIELD}
                     />
                   </label>
                   <label className="block text-sm font-semibold text-ink">
@@ -902,7 +965,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                       onChange={(e) => setVenueAddress(e.target.value)}
                       rows={3}
                       placeholder={t("phVenueAddress")}
-                      className="mt-1.5 w-full resize-none rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      maxLength={600}
+                      className={TEXTAREA_FIELD}
                     />
                   </label>
                   <label className="block text-sm font-semibold text-ink">
@@ -911,7 +975,9 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                       value={mapsLink}
                       onChange={(e) => setMapsLink(e.target.value)}
                       placeholder={t("phMapsLink")}
-                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      maxLength={500}
+                      inputMode="url"
+                      className={INPUT_FIELD}
                     />
                   </label>
                   <div className="flex items-start gap-2 text-wine">
@@ -928,7 +994,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                           inputMode="tel"
                           autoComplete="tel"
                           placeholder={t("phPhone")}
-                          className="min-w-0 flex-1 rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                          maxLength={22}
+                          className={cn(INPUT_FIELD, "min-w-0 flex-1")}
                         />
                       </div>
                       <p className="mt-1.5 text-xs italic text-muted">{t("phoneHint")}</p>
@@ -944,7 +1011,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                     <span className="text-sm font-bold text-ink">{t("stepMusicTitle")}</span>
                   </div>
                   <p className="text-xs text-muted">{t("musicHint")}</p>
-                  <div className="grid gap-3 sm:grid-cols-2">
+                  <div className="grid max-h-[min(70vh,28rem)] gap-3 overflow-y-auto overscroll-contain pr-0.5 sm:grid-cols-2">
                     {tracks.map((trk) => {
                       const active = selectedTrack === trk.id;
                       const playing = playingId === trk.id;
@@ -1053,7 +1120,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         required
                         value={checkoutFirstName}
                         onChange={(e) => setCheckoutFirstName(e.target.value)}
-                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        className={INPUT_FIELD}
                         autoComplete="given-name"
                       />
                     </label>
@@ -1063,7 +1130,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         required
                         value={checkoutLastName}
                         onChange={(e) => setCheckoutLastName(e.target.value)}
-                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        className={INPUT_FIELD}
                         autoComplete="family-name"
                       />
                     </label>
@@ -1076,7 +1143,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                       type="email"
                       value={checkoutEmail}
                       onChange={(e) => setCheckoutEmail(e.target.value)}
-                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      className={INPUT_FIELD}
                       autoComplete="email"
                     />
                   </label>
@@ -1088,7 +1155,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                       inputMode="tel"
                       value={checkoutPhone}
                       onChange={(e) => setCheckoutPhone(e.target.value)}
-                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      className={INPUT_FIELD}
                       autoComplete="tel"
                     />
                   </label>
@@ -1099,7 +1166,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                       required
                       value={checkoutAddress}
                       onChange={(e) => setCheckoutAddress(e.target.value)}
-                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      className={INPUT_FIELD}
                       autoComplete="street-address"
                     />
                   </label>
@@ -1111,7 +1178,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         required
                         value={checkoutCity}
                         onChange={(e) => setCheckoutCity(e.target.value)}
-                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        className={INPUT_FIELD}
                         autoComplete="address-level2"
                       />
                     </label>
@@ -1121,7 +1188,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                         required
                         value={checkoutPostcode}
                         onChange={(e) => setCheckoutPostcode(e.target.value)}
-                        className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                        className={INPUT_FIELD}
                         autoComplete="postal-code"
                       />
                     </label>
@@ -1133,7 +1200,7 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
                       required
                       value={checkoutCountry}
                       onChange={(e) => setCheckoutCountry(e.target.value)}
-                      className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                      className={INPUT_FIELD}
                       autoComplete="country-name"
                     />
                   </label>
@@ -1141,6 +1208,8 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
               ) : null}
             </>
           )}
+            </motion.div>
+          </AnimatePresence>
         </div>
       </div>
       </div>
@@ -1244,3 +1313,12 @@ export function CreateInvitationWizard({ templateSlug, pkg }: Props) {
     </div>
   );
 }
+
+const CreateFlowLivePreview = memo(function CreateFlowLivePreview({
+  previewRef,
+  ...props
+}: InvitationPreviewStageProps & {
+  previewRef: React.RefObject<InvitationPreviewHandle | null>;
+}) {
+  return <InvitationPreviewStage ref={previewRef} {...props} />;
+});

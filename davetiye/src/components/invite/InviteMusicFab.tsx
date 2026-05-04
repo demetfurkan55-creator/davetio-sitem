@@ -1,7 +1,7 @@
 "use client";
 
 import { createInviteOpeningPianoBlobUrl } from "@/lib/invite-opening-audio";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useCallback, useEffect, useRef, useState } from "react";
 
@@ -20,6 +20,7 @@ export function InviteMusicFab({
   spinActive?: boolean;
   playAttemptKey?: number;
 }) {
+  const reduce = useReducedMotion();
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [playing, setPlaying] = useState(false);
   const firedPlayAttempt = useRef(0);
@@ -80,12 +81,30 @@ export function InviteMusicFab({
       : "absolute bottom-3 right-3 z-[60]";
 
   return (
-    <button
+    <motion.button
       type="button"
       onClick={toggle}
+      whileHover={reduce ? undefined : { scale: 1.06 }}
+      whileTap={reduce ? undefined : { scale: 0.94 }}
+      animate={
+        playing && !reduce
+          ? {
+              boxShadow: [
+                "0 12px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08)",
+                "0 16px 52px rgba(201,164,74,0.35), inset 0 1px 0 rgba(255,255,255,0.12)",
+                "0 12px 40px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.08)",
+              ],
+            }
+          : {}
+      }
+      transition={
+        playing && !reduce
+          ? { boxShadow: { duration: 2.2, repeat: Infinity, ease: "easeInOut" } }
+          : {}
+      }
       className={cn(
         positionClass,
-        "flex size-14 items-center justify-center rounded-full border border-[#c9a44a]/50 bg-[#0f0f0f] text-[#d4af37] shadow-[0_12px_40px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.08)] transition hover:scale-[1.04] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a44a] sm:size-16",
+        "flex size-14 items-center justify-center rounded-full border border-[#c9a44a]/50 bg-[#0f0f0f] text-[#d4af37] shadow-[0_12px_40px_rgba(0,0,0,0.35),inset_0_1px_0_rgba(255,255,255,0.08)] transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c9a44a] sm:size-16",
         className,
       )}
       aria-label={playing ? "Müziği durdur" : "Müziği çal"}
@@ -132,6 +151,6 @@ export function InviteMusicFab({
       >
         ♪
       </span>
-    </button>
+    </motion.button>
   );
 }

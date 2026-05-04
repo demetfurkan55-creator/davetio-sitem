@@ -43,6 +43,8 @@ export type MarketTemplate = {
   cardDate: string;
   priceStrike: string;
   priceCurrent: string;
+  /** Vitrin kartında kurumsal fiyat yerine tek satır */
+  priceLine?: string;
   /** İsteğe bağlı; yoksa ortam videosu `NEXT_PUBLIC_INVITE_AMBIENT_VIDEO` veya mesaj yedeği */
   videoSrc?: string;
 };
@@ -108,7 +110,7 @@ export function CategoryMarket({
 
   return (
     <>
-      <div className="-mx-1 mb-10 overflow-x-auto pb-1 sm:mx-0 sm:overflow-visible">
+      <div className="mb-10 w-full min-w-0 max-w-full overflow-x-auto overflow-y-visible pb-1 [-webkit-overflow-scrolling:touch] sm:overflow-x-visible">
         <div className="flex min-w-max snap-x snap-mandatory gap-2 px-1 sm:flex-wrap sm:justify-center sm:px-0">
           {categories.map((c) => (
             <button
@@ -172,7 +174,7 @@ export function CategoryMarket({
         {preview ? (
           <motion.div
             key={preview.slug}
-            className="fixed inset-0 z-[200] flex items-end justify-center p-3 sm:items-center sm:p-6"
+            className="fixed inset-0 z-[200] flex min-w-0 items-end justify-center overflow-x-hidden p-3 sm:items-center sm:p-6"
             role="dialog"
             aria-modal="true"
             aria-label={preview.name}

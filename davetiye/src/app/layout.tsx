@@ -17,6 +17,7 @@ const playfair = Playfair_Display({
   variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  style: ["normal", "italic"],
 });
 
 const greatVibes = Great_Vibes({
@@ -35,7 +36,7 @@ export const viewport: Viewport = {
   initialScale: 1,
   viewportFit: "cover",
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fdf9f9" },
+    { media: "(prefers-color-scheme: light)", color: "#F5EFEB" },
     { media: "(prefers-color-scheme: dark)", color: "#2a0a12" },
   ],
 };
@@ -49,9 +50,9 @@ export default function RootLayout({
     <html
       lang="tr"
       suppressHydrationWarning
-      className={`${montserrat.variable} ${geistMono.variable} ${playfair.variable} ${greatVibes.variable} h-full scroll-smooth antialiased`}
+      className={`${montserrat.variable} ${geistMono.variable} ${playfair.variable} ${greatVibes.variable} h-full w-full max-w-[100vw] scroll-smooth overflow-x-hidden antialiased`}
     >
-      <body className="flex min-h-[100dvh] min-h-full flex-col bg-canvas text-ink font-sans">
+      <body className="flex min-h-[100dvh] min-h-full w-full max-w-[100vw] flex-col overflow-x-hidden bg-[#F5EFEB] text-ink font-sans">
         {children}
       </body>
     </html>

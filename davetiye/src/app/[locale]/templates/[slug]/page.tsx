@@ -5,8 +5,6 @@ import { Link } from "@/i18n/navigation";
 import { slugToMessageKey, TEMPLATE_SLUGS } from "@/data/templates";
 import { AmbientPhotoBackdrop } from "@/components/ui/AmbientPhotoBackdrop";
 import { SITE_AMBIENT } from "@/lib/site-ambient";
-import { resolveInviteVideoUrl } from "@/lib/invite-ambient-video";
-import { resolveTemplateHeroImage } from "@/lib/template-preview-images";
 import { TemplateDetailClient } from "./TemplateDetailClient";
 
 type Messages = {
@@ -19,7 +17,6 @@ type Messages = {
         imageAlt: string;
       }>;
     };
-    previewModal: { videoSrc: string };
   };
 };
 
@@ -48,9 +45,6 @@ export default async function TemplatePage({
   if (!tpl) {
     notFound();
   }
-  const ambientVideoSrc = resolveInviteVideoUrl({
-    messageFallback: messages.Landing.previewModal.videoSrc,
-  });
   const tNav = await getTranslations({ locale, namespace: "TemplateDetail" });
 
   return (
@@ -71,14 +65,7 @@ export default async function TemplatePage({
             </Link>
           </div>
         </div>
-        <TemplateDetailClient
-          slug={slug}
-          image={resolveTemplateHeroImage(slug, tpl.image)}
-          imageAlt={tpl.imageAlt}
-          title={entry.title}
-          intro={entry.intro}
-          ambientVideoSrc={ambientVideoSrc}
-        />
+        <TemplateDetailClient slug={slug} title={entry.title} intro={entry.intro} />
       </div>
     </div>
   );

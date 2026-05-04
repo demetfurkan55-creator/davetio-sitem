@@ -122,7 +122,7 @@ export function PanelTokenClient({ token }: Props) {
   }
 
   return (
-    <div className="min-h-full bg-canvas">
+    <div className="min-h-full w-full max-w-[100vw] min-w-0 overflow-x-hidden bg-canvas">
       <AmbientPhotoBackdrop
         position="fixed"
         className="z-[5]"
@@ -133,13 +133,13 @@ export function PanelTokenClient({ token }: Props) {
         className="davetio-hero-mesh davetio-grain pointer-events-none fixed inset-0 z-[6] opacity-40"
         aria-hidden
       />
-      <div className="relative z-10 mx-auto max-w-6xl px-5 pb-16 pt-10 sm:px-8 sm:pt-14">
+      <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 pb-16 pt-10 sm:px-8 sm:pt-14">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <span className="inline-flex items-center gap-2 rounded-full border border-brand/25 bg-brand-muted px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-brand">
               {t("cloudBadge")}
             </span>
-            <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <h1 className="mt-4 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl md:text-4xl">
               {t("title")}
             </h1>
             <p className="mt-2 max-w-xl text-muted">{t("subtitleCloud")}</p>
@@ -178,7 +178,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.bride}
                     onChange={(e) => updateDraft("bride", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm font-semibold text-ink">
@@ -186,7 +186,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.groom}
                     onChange={(e) => updateDraft("groom", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm text-ink">
@@ -194,7 +194,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.brideMother}
                     onChange={(e) => updateDraft("brideMother", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm text-ink">
@@ -202,7 +202,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.brideFather}
                     onChange={(e) => updateDraft("brideFather", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm text-ink">
@@ -210,7 +210,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.groomMother}
                     onChange={(e) => updateDraft("groomMother", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm text-ink">
@@ -218,7 +218,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.groomFather}
                     onChange={(e) => updateDraft("groomFather", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm font-semibold text-ink">
@@ -227,7 +227,7 @@ export function PanelTokenClient({ token }: Props) {
                     type="date"
                     value={draft.eventDate}
                     onChange={(e) => updateDraft("eventDate", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm font-semibold text-ink">
@@ -236,7 +236,7 @@ export function PanelTokenClient({ token }: Props) {
                     type="time"
                     value={draft.eventTime}
                     onChange={(e) => updateDraft("eventTime", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm font-semibold text-ink sm:col-span-2">
@@ -244,7 +244,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.venueName}
                     onChange={(e) => updateDraft("venueName", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm font-semibold text-ink sm:col-span-2">
@@ -253,7 +253,7 @@ export function PanelTokenClient({ token }: Props) {
                     value={draft.venueAddress}
                     onChange={(e) => updateDraft("venueAddress", e.target.value)}
                     rows={3}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm text-ink sm:col-span-2">
@@ -261,7 +261,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.mapsLink}
                     onChange={(e) => updateDraft("mapsLink", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
                 <label className="text-sm font-semibold text-ink sm:col-span-2">
@@ -269,7 +269,7 @@ export function PanelTokenClient({ token }: Props) {
                   <input
                     value={draft.phone}
                     onChange={(e) => updateDraft("phone", e.target.value)}
-                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-sm outline-none ring-wine/20 focus:ring-2"
+                    className="mt-1.5 w-full rounded-xl border border-ink/10 bg-canvas px-3 py-2.5 text-base outline-none ring-wine/20 focus:ring-2"
                   />
                 </label>
               </div>

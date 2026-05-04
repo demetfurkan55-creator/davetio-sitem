@@ -58,7 +58,7 @@ export function PanelClient() {
   ] as const;
 
   return (
-    <div className="min-h-full bg-canvas">
+    <div className="min-h-full w-full max-w-[100vw] min-w-0 overflow-x-hidden bg-canvas">
       <AmbientPhotoBackdrop
         position="fixed"
         className="z-[5]"
@@ -69,7 +69,7 @@ export function PanelClient() {
         className="davetio-hero-mesh davetio-grain pointer-events-none fixed inset-0 z-[6] opacity-40"
         aria-hidden
       />
-      <div className="relative z-10 mx-auto max-w-6xl px-5 pb-16 pt-10 sm:px-8 sm:pt-14">
+      <div className="relative z-10 mx-auto min-w-0 max-w-6xl px-4 pb-16 pt-10 sm:px-8 sm:pt-14">
         <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div>
             {draft ? (
@@ -77,7 +77,7 @@ export function PanelClient() {
                 {t("draftBadge")}
               </span>
             ) : null}
-            <h1 className="mt-4 font-display text-3xl font-semibold tracking-tight text-ink sm:text-4xl">
+            <h1 className="mt-4 font-display text-2xl font-semibold tracking-tight text-ink sm:text-3xl md:text-4xl">
               {t("title")}
             </h1>
             <p className="mt-2 max-w-xl text-muted">{t("subtitle")}</p>

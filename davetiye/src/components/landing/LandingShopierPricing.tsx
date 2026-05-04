@@ -124,7 +124,7 @@ export function LandingShopierPricing({ locale }: Props) {
           e.preventDefault();
           close();
         }}
-        className="w-[min(100%,26rem)] rounded-2xl border border-[#6b1d2e]/15 bg-[#fdf9f9] p-0 text-[#4a1420] shadow-[0_24px_60px_-24px_rgba(60,20,30,0.35)] backdrop:bg-black/40"
+        className="w-full max-w-md rounded-2xl border border-[#6b1d2e]/15 bg-[#fdf9f9] p-0 text-[#4a1420] shadow-[0_24px_60px_-24px_rgba(60,20,30,0.35)] backdrop:bg-black/40"
       >
         <form
           className="flex max-h-[85dvh] flex-col gap-4 overflow-y-auto p-6"
@@ -151,7 +151,7 @@ export function LandingShopierPricing({ locale }: Props) {
                 required
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-sm text-[#4a1420]"
+                className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-base text-[#4a1420]"
                 autoComplete="given-name"
               />
             </label>
@@ -161,7 +161,7 @@ export function LandingShopierPricing({ locale }: Props) {
                 required
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-sm text-[#4a1420]"
+                className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-base text-[#4a1420]"
                 autoComplete="family-name"
               />
             </label>
@@ -174,7 +174,7 @@ export function LandingShopierPricing({ locale }: Props) {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-sm text-[#4a1420]"
+              className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-base text-[#4a1420]"
               autoComplete="email"
             />
           </label>
@@ -186,7 +186,7 @@ export function LandingShopierPricing({ locale }: Props) {
               inputMode="tel"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-sm text-[#4a1420]"
+              className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-base text-[#4a1420]"
               autoComplete="tel"
             />
           </label>
@@ -197,7 +197,7 @@ export function LandingShopierPricing({ locale }: Props) {
               required
               value={address}
               onChange={(e) => setAddress(e.target.value)}
-              className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-sm text-[#4a1420]"
+              className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-base text-[#4a1420]"
               autoComplete="street-address"
             />
           </label>
@@ -209,7 +209,7 @@ export function LandingShopierPricing({ locale }: Props) {
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-sm text-[#4a1420]"
+                className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-base text-[#4a1420]"
                 autoComplete="address-level2"
               />
             </label>
@@ -219,7 +219,7 @@ export function LandingShopierPricing({ locale }: Props) {
                 required
                 value={postcode}
                 onChange={(e) => setPostcode(e.target.value)}
-                className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-sm text-[#4a1420]"
+                className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-base text-[#4a1420]"
                 autoComplete="postal-code"
               />
             </label>
@@ -231,7 +231,7 @@ export function LandingShopierPricing({ locale }: Props) {
               required
               value={country}
               onChange={(e) => setCountry(e.target.value)}
-              className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-sm text-[#4a1420]"
+              className="rounded-xl border border-[#6b1d2e]/15 bg-white px-3 py-2 text-base text-[#4a1420]"
               autoComplete="country-name"
             />
           </label>
