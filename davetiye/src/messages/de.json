@@ -471,14 +471,16 @@
       "faq": "FAQ",
       "panel": "RSVP-Panel",
       "more": "Mehr",
-      "ctaCreate": "Einladung erstellen"
+      "ctaCreate": "Einladung erstellen",
+      "demoInvite": "Mobile Einladungs-Demo"
     },
     "blogTeaser": "Der Blog startet bald — Tipps und Vorlagen-Geschichten folgen.",
     "hero": {
       "eyebrow": "Edle digitale Einladungen",
       "headline": "Gestalten Sie die Einladung Ihrer Träume",
       "scriptLine": "Für Ihren besonderen Tag",
-      "ctaPrimary": "Kostenlos erstellen"
+      "ctaPrimary": "Kostenlos erstellen",
+      "ctaDemo": "Gästeerlebnis ansehen (Demo)"
     },
     "heroSlider": {
       "collectionLine": "Kuratierte Kollektion",

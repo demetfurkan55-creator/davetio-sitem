@@ -1,5 +1,6 @@
 import { getMessages, getTranslations } from "next-intl/server";
 import { Heart, ListChecks, Palette, ShieldCheck, type LucideIcon } from "lucide-react";
+import NextLink from "next/link";
 import { Link } from "@/i18n/navigation";
 import { LocaleSwitcher } from "@/components/LocaleSwitcher";
 import { DavetioMark } from "@/components/branding/DavetioMark";
@@ -62,16 +63,16 @@ export async function LandingPage({ locale }: { locale: string }) {
     `/${locale}${hash.startsWith("#") ? hash : `#${hash}`}`;
 
   return (
-    <div className="flex min-h-full flex-col">
-      <header className="sticky top-0 z-50 border-b border-ink/[0.06] bg-white/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:gap-4 sm:px-6 lg:min-h-[3.35rem] lg:px-8">
-          <Link href="/" className="group flex shrink-0 items-center gap-2 sm:gap-2.5">
+    <div className="flex min-h-[100dvh] min-h-full flex-col">
+      <header className="sticky top-0 z-50 border-b border-ink/[0.06] bg-white/90 pt-[env(safe-area-inset-top,0px)] backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl min-w-0 items-center justify-between gap-2 px-3 py-2.5 sm:gap-4 sm:px-6 sm:py-3 lg:min-h-[3.35rem] lg:px-8">
+          <Link href="/" className="group flex min-w-0 items-center gap-1.5 sm:gap-2.5">
             <DavetioMark
-              size={40}
+              size={38}
               variant="romantic"
-              className="transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-[1.04]"
+              className="shrink-0 transition-transform duration-300 group-hover:rotate-[-5deg] group-hover:scale-[1.04]"
             />
-            <span className="font-display text-lg font-semibold tracking-tight text-ink sm:text-[1.35rem] lg:text-xl xl:text-2xl">
+            <span className="truncate font-display text-base font-semibold tracking-tight text-ink sm:text-[1.35rem] lg:text-xl xl:text-2xl">
               Davetio<span className="text-seal-gold">.</span>
             </span>
           </Link>
@@ -83,6 +84,7 @@ export async function LandingPage({ locale }: { locale: string }) {
                 features: t("nav.features"),
                 templates: t("nav.templates"),
                 catalog: t("nav.catalog"),
+                demoInvite: t("nav.demoInvite"),
                 pricing: t("nav.pricing"),
                 faq: t("nav.faq"),
                 panel: t("nav.panel"),
@@ -90,18 +92,18 @@ export async function LandingPage({ locale }: { locale: string }) {
               }}
             />
           </div>
-          <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
             <LocaleSwitcher />
             <Link
               href="/olustur"
-              className="whitespace-nowrap rounded-2xl bg-seal-navy px-3.5 py-2 text-sm font-semibold text-white shadow-md ring-1 ring-seal-gold/35 transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 sm:px-4"
+              className="whitespace-nowrap rounded-2xl bg-seal-navy px-3 py-2 text-xs font-semibold text-white shadow-md ring-1 ring-seal-gold/35 transition-all duration-300 hover:-translate-y-0.5 hover:brightness-110 min-[380px]:px-3.5 min-[380px]:text-sm sm:px-4"
             >
               {t("nav.ctaCreate")}
             </Link>
           </div>
         </div>
         <nav
-          className="flex gap-1 overflow-x-auto scroll-pb-1 border-t border-ink/[0.05] px-4 py-2 [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-2 sm:px-5 [&::-webkit-scrollbar]:hidden lg:hidden"
+          className="flex gap-1 overflow-x-auto scroll-pb-1 border-t border-ink/[0.05] py-2 pl-[max(0.75rem,env(safe-area-inset-left,0px))] pr-[max(0.75rem,env(safe-area-inset-right,0px))] [-ms-overflow-style:none] [scrollbar-width:none] sm:gap-2 sm:px-5 sm:pl-5 sm:pr-5 [&::-webkit-scrollbar]:hidden lg:hidden"
           aria-label="Mobile"
         >
           <a href={locHash("#adimlar")} className={`${navLink} shrink-0`}>
@@ -116,6 +118,9 @@ export async function LandingPage({ locale }: { locale: string }) {
           <Link href="/katalog" className={`${navLink} shrink-0`}>
             {t("nav.catalog")}
           </Link>
+          <NextLink href="/demo" className={`${navLink} shrink-0`}>
+            {t("nav.demoInvite")}
+          </NextLink>
           <a href={locHash("#fiyatlar")} className={`${navLink} shrink-0`}>
             {t("nav.pricing")}
           </a>
@@ -138,25 +143,31 @@ export async function LandingPage({ locale }: { locale: string }) {
             <div className="davetio-grain absolute inset-0 opacity-[0.35] mix-blend-multiply" />
           </div>
           <HeroFlyingHearts subtle tone="blush" />
-          <div className="relative z-[2] mx-auto max-w-3xl px-5 pb-16 pt-4 text-center sm:px-8 sm:pb-20 sm:pt-6 lg:pb-24 lg:pt-8">
-            <p className="mx-auto inline-flex items-center rounded-full border border-white/60 bg-white/80 px-4 py-1.5 text-[0.63rem] font-semibold uppercase tracking-[0.15em] text-ink/60 shadow-sm backdrop-blur-sm">
+          <div className="relative z-[2] mx-auto max-w-3xl px-4 pb-14 pt-3 text-center sm:px-8 sm:pb-20 sm:pt-6 lg:pb-24 lg:pt-8">
+            <p className="mx-auto inline-flex max-w-[min(100%,20rem)] items-center justify-center rounded-full border border-white/60 bg-white/80 px-3 py-1.5 text-[0.58rem] font-semibold uppercase leading-snug tracking-[0.12em] text-ink/60 shadow-sm backdrop-blur-sm sm:max-w-none sm:px-4 sm:text-[0.63rem] sm:tracking-[0.15em]">
               {t("hero.eyebrow")}
             </p>
-            <h1 className="davetio-animate-in mt-8 font-display text-[2rem] font-semibold leading-[1.08] tracking-tight text-ink sm:text-[2.45rem] lg:text-[3rem]">
+            <h1 className="davetio-animate-in mt-6 px-0.5 font-display text-[clamp(1.55rem,5.2vw+0.6rem,2rem)] font-semibold leading-[1.1] tracking-tight text-ink sm:mt-8 sm:px-0 sm:text-[2.45rem] lg:text-[3rem]">
               {t("hero.headline")}
             </h1>
-            <p className="font-accent davetio-animate-in mt-4 text-[1.75rem] leading-tight text-seal-gold sm:text-[2.05rem] lg:text-[2.35rem]">
+            <p className="font-accent davetio-animate-in mt-3 break-words px-0.5 text-[clamp(1.35rem,4vw+0.5rem,1.75rem)] leading-tight text-seal-gold sm:mt-4 sm:text-[2.05rem] lg:text-[2.35rem]">
               {t("hero.scriptLine")}
             </p>
 
-            <div className="davetio-animate-in mt-12 flex flex-col items-center sm:mt-14">
+            <div className="davetio-animate-in mt-10 flex flex-col items-center gap-3 px-1 sm:mt-14">
               <Link
                 href="/olustur"
-                className="inline-flex min-w-[min(100%,17rem)] items-center justify-center gap-2 rounded-full bg-seal-navy px-10 py-3.5 text-sm font-bold text-white shadow-[0_16px_42px_-12px_rgba(178,74,92,0.35)] ring-1 ring-seal-gold/40 transition hover:brightness-110"
+                className="inline-flex w-full max-w-sm items-center justify-center gap-2 rounded-full bg-seal-navy px-8 py-3.5 text-sm font-bold text-white shadow-[0_16px_42px_-12px_rgba(178,74,92,0.35)] ring-1 ring-seal-gold/40 transition hover:brightness-110 min-[400px]:max-w-none min-[400px]:min-w-[min(100%,17rem)] min-[400px]:px-10"
               >
                 <Heart className="size-4 fill-white/35" aria-hidden />
                 {t("hero.ctaPrimary")}
               </Link>
+              <NextLink
+                href="/demo"
+                className="text-sm font-semibold text-brand underline decoration-brand/35 underline-offset-4 transition hover:text-brand-hover hover:decoration-brand"
+              >
+                {t("hero.ctaDemo")}
+              </NextLink>
             </div>
           </div>
         </section>
@@ -266,7 +277,7 @@ export async function LandingPage({ locale }: { locale: string }) {
           id="sablonlar"
           className="relative scroll-mt-28 border-t border-ink/[0.06] bg-white lg:scroll-mt-24"
         >
-          <div className="border-b border-ink/[0.05] bg-gradient-to-b from-canvas-muted/55 via-white to-white pb-6 pt-10 sm:pb-8 sm:pt-12">
+          <div className="hero-coverflow-clip border-b border-ink/[0.05] bg-gradient-to-b from-canvas-muted/55 via-white to-white pb-6 pt-8 sm:pb-8 sm:pt-12">
             <HeroCoverflowCarousel slides={templateItems} />
           </div>
           <div className="relative mx-auto max-w-6xl px-5 py-14 sm:px-8 sm:py-16">

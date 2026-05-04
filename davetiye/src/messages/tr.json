@@ -471,14 +471,16 @@
       "faq": "Sıkça sorulan sorular",
       "panel": "LCV paneli",
       "more": "Diğer",
-      "ctaCreate": "Davet oluştur"
+      "ctaCreate": "Davet oluştur",
+      "demoInvite": "Mobil davetiye demosu"
     },
     "blogTeaser": "Blog çok yakında — ipuçları ve şablon hikâyeleri burada olacak.",
     "hero": {
       "eyebrow": "Şık dijital davetiyeler",
       "headline": "Hayalinizdeki davetiyeyi oluşturun",
       "scriptLine": "En özel gününüz için",
-      "ctaPrimary": "Ücretsiz oluştur"
+      "ctaPrimary": "Ücretsiz oluştur",
+      "ctaDemo": "Misafir deneyimini dene (demo)"
     },
     "heroSlider": {
       "collectionLine": "Küratörlü koleksiyon",
