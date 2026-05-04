@@ -1,0 +1,732 @@
+{
+  "Metadata": {
+    "title": "Davetio · Düğün ve nikah dijital davetiye",
+    "description": "Davetio ile düğün ve resmi nikah davetiyenizi dakikalar içinde oluşturun — LCV, harita ve paylaşıma hazır bağlantı."
+  },
+  "Legal": {
+    "privacyTitle": "Gizlilik",
+    "privacyBody": "Kişisel verilerin işlenmesine ilişkin ayrıntılı metin yakında burada yayınlanacaktır. Sorularınız için iletişim kanallarımız üzerinden bize ulaşabilirsiniz.",
+    "termsTitle": "Kullanım koşulları",
+    "termsBody": "Hizmet kullanımına ilişkin koşullar yakında burada yayınlanacaktır.",
+    "backHome": "Ana sayfaya dön"
+  },
+  "Panel": {
+    "title": "LCV paneli",
+    "subtitle": "Katılım yanıtları ve özet burada toplanır; taslak bilgileriniz bu tarayıcıda saklanır.",
+    "draftBadge": "Kayıtlı taslak",
+    "draftTitle": "Son kaydettiğiniz davetiye",
+    "draftCouple": "Çift",
+    "draftWhen": "Tarih ve saat",
+    "draftVenue": "Mekân",
+    "draftPhone": "İletişim",
+    "draftMusic": "Müzik",
+    "draftTemplate": "Şablon",
+    "emptyGuestList": "Henüz misafir yanıtı yok. Davetiye bağlantınızı paylaştığınızda LCV yanıtları burada listelenir.",
+    "statConfirmed": "Onaylı",
+    "statPending": "Bekleyen",
+    "statDeclined": "Gelmiyor",
+    "statGuests": "Kişi (toplam)",
+    "statResponses": "Yanıt",
+    "sectionGuests": "Misafir listesi",
+    "colGuest": "Misafir",
+    "colStatus": "Durum",
+    "colParty": "Kişi",
+    "colWhen": "Güncelleme",
+    "statusYes": "Katılıyor",
+    "statusMaybe": "Belirsiz",
+    "statusNo": "Gelmiyor",
+    "footerNote": "Yayınlandığında davetinize özel bağlantı ve güvenli erişim ile tam panel açılır. Şimdilik bilgiler yalnızca bu cihazda tutulur.",
+    "ctaHome": "Ana sayfa",
+    "ctaCreate": "Yeni davetiye",
+    "cloudBadge": "Bulut panel",
+    "subtitleCloud": "Bu bağlantı size özeldir. Davetiye metinlerini aşağıdan güncelleyebilirsiniz.",
+    "loading": "Yükleniyor…",
+    "loadError": "Panel bulunamadı veya bağlantı geçersiz.",
+    "saveError": "Kayıt başarısız. Bağlantınızı kontrol edip tekrar deneyin.",
+    "save": "Değişiklikleri kaydet",
+    "saving": "Kaydediliyor…",
+    "saved": "Kaydedildi",
+    "editTitle": "Davetiyeyi düzenle",
+    "editHint": "İsimler, tarih, mekân ve iletişim bilgisini buradan değiştirebilirsiniz.",
+    "fieldBride": "Gelin adı",
+    "fieldGroom": "Damat adı",
+    "fieldBrideMother": "Gelin annesi",
+    "fieldBrideFather": "Gelin babası",
+    "fieldGroomMother": "Damat annesi",
+    "fieldGroomFather": "Damat babası",
+    "fieldDate": "Tarih",
+    "fieldTime": "Saat",
+    "fieldVenueName": "Mekân adı",
+    "fieldVenueAddress": "Mekân adresi",
+    "fieldMaps": "Harita linki (isteğe bağlı)",
+    "fieldPhone": "Telefon",
+    "fieldMusic": "Seçilen müzik",
+    "footerNoteCloud": "Misafir LCV yanıtları davet bağlantısı paylaşıldığında bu listede görünür.",
+    "rows": []
+  },
+  "Vitrine": {
+    "navLogin": "Giriş Yap",
+    "navCreate": "Davetiye oluştur",
+    "navGallery": "Atmosfer",
+    "navPricing": "Paket",
+    "langLabel": "Dil",
+    "heroEyebrow": "Dijital davetiye · LCV · tek bağlantı",
+    "heroTitle": "Davetiniz, bir sanat eseri gibi.",
+    "heroLead": "Küratörlü şablonlar, cam yüzeyler ve akıllı LCV ile misafir deneyimini tek bağlantıda toplayın. Siz görsel avcılığı yapmayın — biz tonu kurduk.",
+    "heroCta": "Kendi Davetiyeni Oluştur",
+    "heroSecondary": "Şablonları keşfet",
+    "galleryEyebrow": "Görsel seçki",
+    "galleryTitle": "Premium atmosfer, tek çizgide",
+    "galleryLead": "Çiçek aranjmanı, mimari zarafet ve masa detayı — cam çerçeveli vitrin alanında, arka planla bütünleşik.",
+    "galleryCap1": "Çiçek & doku",
+    "galleryCap2": "Mekân & mimari",
+    "galleryCap3": "Masa & ışık",
+    "pricingEyebrow": "Şeffaf fiyat",
+    "pricingTitle": "Tek paket, tam deneyim",
+    "pricingLead": "Tüm premium özellikler ve düzenlemeler dahil; sürpriz satır yok.",
+    "pricePlan": "Davetio Premium",
+    "priceStrike": "₺4.999",
+    "priceCurrent": "₺999",
+    "priceFeature1": "LCV paneli ve misafir özeti",
+    "priceFeature2": "Harita, müzik ve paylaşım kartı",
+    "priceFeature3": "Şablona göre sınırsız metin turu",
+    "priceFeature4": "Yayına alma ve link güvencesi",
+    "priceCta": "Pakete geç",
+    "featuresEyebrow": "Neden biz?",
+    "featuresTitle": "Her detayda lüks deneyim",
+    "featuresLead": "Davetio; düğün, nikah ve özel günleriniz için tasarlanmış premium dijital davetiye altyapısı sunar.",
+    "feature1Title": "Akıllı LCV",
+    "feature1Desc": "Katılım yanıtları anında özetlenir; kişi sayıları ve notlar tek panelde.",
+    "feature2Title": "Küratörlü şablonlar",
+    "feature2Desc": "Her şablon görselleri ve tipografisiyle bir bütün; dakikalar içinde kişiselleştirin.",
+    "feature3Title": "Tek paylaşım linki",
+    "feature3Desc": "WhatsApp, SMS veya e-posta — her yerde şık önizleme kartı ile paylaşın.",
+    "templatesEyebrow": "Örnekler",
+    "templatesTitle": "Polaroid ruhunda şablonlar",
+    "templatesLead": "Üzerine gelin, önizlemeyi açın ve kendi hikâyenizi yazın.",
+    "preview": "Önizle",
+    "template1Name": "Sonsuz Aşk",
+    "template2Name": "Çiğdem Tepesi",
+    "template3Name": "Beyaz Kartuş",
+    "footerTagline": "Premium dijital davetiye deneyimi.",
+    "footerClaims": "LCV · Harita · Müzik · Paylaşım kartı",
+    "footerCopy": "© {year} Davetio. Tüm hakları saklıdır."
+  },
+  "Catalog": {
+    "brand": "Davetio",
+    "headline": "Hayalinizdeki davetiyeyi seçin",
+    "lead": "Düğün, nikah, nişan ve kına davetiyeleri — şablonlar dakikalar içinde kişiselleşir; LCV ve paylaşım kartı hazır.",
+    "tagline": "Dijital davetiye vitrin",
+    "catAll": "Tümü",
+    "catWedding": "Düğün",
+    "catEngagement": "Nişan",
+    "catHenna": "Kına",
+    "catNikah": "Nikah",
+    "viewProduct": "Ürünü Gör",
+    "badgePopular": "Popüler",
+    "badgeNew": "Yeni",
+    "priceOld": "₺4.999",
+    "priceCurrent": "₺999",
+    "footerNote": "© {year} Davetio",
+    "emptyCategory": "Bu kategoride ürün bulunmuyor.",
+    "products": [
+      {
+        "slug": "serenade-hall",
+        "filter": "dugun",
+        "name": "Düğün Davetiyesi — Sonsuz Aşk",
+        "badge": "popular",
+        "label": "DÜĞÜN",
+        "imageAlt": "Sonsuz Aşk şablonu — örnek isim ve tarihli davetiye önizlemesi",
+        "cardEyebrow": "Düğünümüze",
+        "cardCouple": "Deniz & Ece",
+        "cardDate": "14 Haziran 2026",
+        "priceStrike": "₺5.099",
+        "priceCurrent": "₺1.299"
+      },
+      {
+        "slug": "rose-script",
+        "filter": "dugun",
+        "name": "Düğün Davetiyesi — Gümüş Gece",
+        "badge": "new",
+        "label": "DÜĞÜN",
+        "imageAlt": "Gümüş Gece şablonu — örnek isim ve tarihli davetiye önizlemesi",
+        "cardEyebrow": "Gece törenimize",
+        "cardCouple": "Leyla & Arda",
+        "cardDate": "12 Eylül 2026",
+        "priceStrike": "₺5.099",
+        "priceCurrent": "₺1.299"
+      },
+      {
+        "slug": "pearl-mist",
+        "filter": "nisan",
+        "name": "Nişan Davetiyesi — Safir Yüzük",
+        "badge": "popular",
+        "label": "NİŞAN",
+        "imageAlt": "Safir Yüzük şablonu — örnek isim ve tarihli davetiye önizlemesi",
+        "cardEyebrow": "Nişanımıza",
+        "cardCouple": "Burcu & Emir",
+        "cardDate": "3 Kasım 2026",
+        "priceStrike": "₺4.199",
+        "priceCurrent": "₺999"
+      },
+      {
+        "slug": "golden-hour",
+        "filter": "kina",
+        "name": "Kına Davetiyesi — Yakut Gece",
+        "badge": "new",
+        "label": "KİNA",
+        "imageAlt": "Yakut Gece şablonu — örnek isim ve tarihli davetiye önizlemesi",
+        "cardEyebrow": "Kına gecesine",
+        "cardCouple": "Hande & Kaan",
+        "cardDate": "8 Temmuz 2026",
+        "priceStrike": "₺4.999",
+        "priceCurrent": "₺1.099"
+      },
+      {
+        "slug": "meadow-vows",
+        "filter": "dugun",
+        "name": "Düğün Davetiyesi — Çiğdem Tepesi",
+        "badge": "popular",
+        "label": "DÜĞÜN",
+        "imageAlt": "Çiğdem Tepesi şablonu — örnek isim ve tarihli davetiye önizlemesi",
+        "cardEyebrow": "Bahçede kutlamaya",
+        "cardCouple": "Selin & Can",
+        "cardDate": "22 Ağustos 2026",
+        "priceStrike": "₺4.299",
+        "priceCurrent": "₺999"
+      },
+      {
+        "slug": "ivory-union",
+        "filter": "nikah",
+        "name": "Nikah Davetiyesi — Fildişi Işığı",
+        "badge": "new",
+        "label": "NİKAH",
+        "imageAlt": "Fildişi Işığı şablonu — örnek isim ve tarihli davetiye önizlemesi",
+        "cardEyebrow": "Nikah törenimize",
+        "cardCouple": "Zeynep & Mert",
+        "cardDate": "18 Mayıs 2026",
+        "priceStrike": "₺3.599",
+        "priceCurrent": "₺999"
+      },
+      {
+        "slug": "civic-bloom",
+        "filter": "nikah",
+        "name": "Nikah Davetiyesi — Beyaz Kartuş",
+        "badge": "new",
+        "label": "NİKAH",
+        "imageAlt": "Beyaz Kartuş şablonu — örnek isim ve tarihli davetiye önizlemesi",
+        "cardEyebrow": "Nikah törenimize",
+        "cardCouple": "Ayşe & Kerem",
+        "cardDate": "5 Ekim 2026",
+        "priceStrike": "₺3.999",
+        "priceCurrent": "₺999"
+      },
+      {
+        "slug": "marble-vow",
+        "filter": "nikah",
+        "name": "Nikah Davetiyesi — Mermer Zarafeti",
+        "badge": "popular",
+        "label": "NİKAH",
+        "imageAlt": "Mermer Zarafeti şablonu — örnek isim ve tarihli davetiye önizlemesi",
+        "cardEyebrow": "Resmî törenimize",
+        "cardCouple": "Elif & Onur",
+        "cardDate": "15 Mart 2026",
+        "priceStrike": "₺5.199",
+        "priceCurrent": "₺1.299"
+      }
+    ]
+  },
+  "FAQ": {
+    "tag": "Sıkça sorulan sorular",
+    "title": "Merak ettikleriniz",
+    "items": [
+      {
+        "q": "Hangi etkinlik türleri için davetiye oluşturabilirim?",
+        "a": "Davetio’da düğün, resmi nikah, nişan ve kına davetiyeleri için şablonlarımızı kullanabilirsiniz."
+      },
+      {
+        "q": "Davetiyem ne kadar süre aktif kalır?",
+        "a": "Davetiyeniz yayına alındığı tarihten itibaren uzun süre erişilebilir kalır; süre politikası sipariş onayında net olarak paylaşılır."
+      },
+      {
+        "q": "Davetiyeyi oluşturduktan sonra düzenleyebilir miyim?",
+        "a": "Evet. Metinleri, tarihleri ve görselleri sonradan güncelleyebilirsiniz; değişiklikler bağlantınıza yansır."
+      },
+      {
+        "q": "Davetiyeyi misafirlerimle nasıl paylaşırım?",
+        "a": "Size özel bağlantı ve paylaşıma uygun önizleme üretilir; WhatsApp, SMS veya e-posta ile tek dokunuşla gönderebilirsiniz."
+      },
+      {
+        "q": "Verilerim güvende mi?",
+        "a": "Verileriniz şifrelenir ve üçüncü taraflarla paylaşılmaz; altyapı Supabase güvenlik önerileriyle yapılandırılır."
+      },
+      {
+        "q": "Misafirlerimin gelip gelmeyeceğini (LCV) nasıl takip ederim?",
+        "a": "Misafirler formu doldurduğunda yanıtlar panelinizde anlık görünür; kişi sayıları ve durumlar özetlenir."
+      },
+      {
+        "q": "İade yapıyor musunuz?",
+        "a": "Bağlantıyı hiç paylaşmadıysanız, satın alma sonrası kısa süre içinde iade koşulları geçerlidir; ayrıntılar sipariş sayfasında yer alır."
+      },
+      {
+        "q": "Fiyatlar hangi para biriminde gösterilir?",
+        "a": "Türkçe dilindeki sayfalarda fiyatlar Türk lirası (₺), Almanca dilindeki sayfalarda Euro (€) olarak listelenir. Dil seçimi sağ üstteki TR / DE anahtarıyla yapılır."
+      },
+      {
+        "q": "Almanya'dan girince site neden Almanca ve Euro ile açılabilir?",
+        "a": "Almanya'dan gelen ilk ziyaretlerde bölge bilgisi (IP üzerinden, barındırıcı sağlayıcınızın ilettiği ülke kodu) varsayılan dili Almanca ve vitrin fiyatlarını Euro gösterecek şekilde ayarlanabilir. Türkçe veya farklı bir dil tercih ederseniz TR / DE anahtarından değiştirebilirsiniz; seçiminiz tarayıcıda hatırlanır."
+      }
+    ]
+  },
+  "HelpChat": {
+    "title": "Davetio yardım",
+    "openLabel": "Yardım sohbetini aç",
+    "closeLabel": "Kapat",
+    "pickQuestion": "Bir soru seçin; yanıt aşağıda açılır",
+    "fullFaqLink": "Tüm sorulara git (sayfa altı)"
+  },
+  "TemplateDetail": {
+    "back": "Ana sayfaya dön",
+    "sampleEyebrow": "Düğünümüze",
+    "sampleNames": "Zeynep & Mert",
+    "sampleDate": "15 Ağustos 2026 · 19:30",
+    "sampleVenue": "Grand Ballroom · Beşiktaş",
+    "sampleMapsCta": "Yol tarifi",
+    "packagesTitle": "Paket seçimi",
+    "featuresTitle": "Dahil olanlar",
+    "cta": "Davetiyeni oluştur",
+    "preview": "Canlı önizleme",
+    "reviews": "Davetio kürasyonu",
+    "saveBadge": "%80’e varan tasarruf",
+    "packages": [
+      { "id": "solo", "label": "Sadece düğün" },
+      { "id": "weddingNikah", "label": "Düğün + Nikah" },
+      { "id": "weddingHenna", "label": "Düğün + Kına" },
+      { "id": "nikahOnly", "label": "Sadece nikah" }
+    ],
+    "features": [
+      "Aynı gün içinde paylaşıma uygun teslim akışı",
+      "Açılışta isteğe bağlı arka plan müziği",
+      "Harita, LCV, galeri, geri sayım ve not alanı",
+      "Davetiye bağlantısı uzun süre erişilebilir"
+    ]
+  },
+  "CreateFlow": {
+    "title": "Davetiyeni oluştur",
+    "hint": "Dört kısa adımda bilgilerinizi tamamlayın; müzik önizlemesi ve özet dahildir.",
+    "backHome": "Ana sayfa",
+    "back": "Geri",
+    "continue": "Devam et",
+    "finish": "Tamamla",
+    "studioLabel": "Davetio Studio",
+    "templateLabel": "Şablon",
+    "required": "Lütfen zorunlu alanları doldurun.",
+    "flowProgress": "Adım {current} / {total}",
+    "hintLong": "Önce etkinlik türünü ve şablonu seçin; ardından çift bilgileri ve mekânı tamamlayın. Önizleme slaytı şablon seçildikten sonra canlı açılır.",
+    "onboardingPickEvent": "Lütfen bir etkinlik türü seçin.",
+    "onboardingPickBundle": "Lütfen bir paket seçin.",
+    "onboardingPickTemplate": "Lütfen bir davetiye modeli seçin.",
+    "welcomeTitle": "Hayalinizdeki davetiye",
+    "welcomeSubtitle": "Birkaç adımda düğün, nikah, kına veya nişan davetiyenizi kişiselleştirin — animasyonlu önizleme ile birlikte.",
+    "welcomeCta": "Başlayalım",
+    "eventTitle": "Etkinlik türü",
+    "eventSubtitle": "Düzenlediğiniz kutlamayı seçin",
+    "eventWedding": "Düğün",
+    "eventWeddingDesc": "Salon veya açık hava düğünü için şık davetiye.",
+    "eventNikah": "Nikah",
+    "eventNikahDesc": "Resmî nikah töreni için sade ve zarif tasarım.",
+    "eventHenna": "Kına",
+    "eventHennaDesc": "Geleneksel kına gecenize özel atmosfer.",
+    "eventEngagement": "Nişan",
+    "eventEngagementDesc": "Nişan töreninizi sevdiklerinizle paylaşın.",
+    "bundleTitle": "Paket seçimi",
+    "bundleSubtitle": "Kaç etkinlik için davetiye hazırlayalım?",
+    "bundleSoloWedding": "Sadece düğün",
+    "bundleSoloWeddingPrice": "₺999",
+    "bundleWeddingNikah": "Düğün + Nikah",
+    "bundleWeddingNikahPrice": "₺999",
+    "bundleWeddingHenna": "Düğün + Kına",
+    "bundleWeddingHennaPrice": "₺999",
+    "bundleSoloEngagement": "Sadece nişan",
+    "bundleSoloEngagementPrice": "₺999",
+    "bundleSoloNikah": "Sadece nikah",
+    "bundleSoloNikahPrice": "₺999",
+    "bundleSoloHenna": "Sadece kına",
+    "bundleSoloHennaPrice": "₺999",
+    "templatePickTitle": "Davetiye modelini seçin",
+    "templatePickSubtitle": "Beğendiğiniz tasarıma dokunun; canlı önizleme bir sonraki adımda açılır.",
+    "templateDemo": "Önizleme",
+    "closeDemo": "Kapat",
+    "flowStepTitles": [
+      "Hayalinizdeki davetiye",
+      "Etkinlik türü",
+      "Paket seçimi",
+      "Davetiye modeli",
+      "Çift bilgileri",
+      "Tarih ve mekân",
+      "Müzik",
+      "Özet"
+    ],
+    "steps": ["Çift", "Tarih & mekân", "Müzik", "Özet"],
+    "stepNamesTitle": "Çift bilgileri",
+    "bride": "Gelin adı",
+    "groom": "Damat adı",
+    "brideMother": "Gelin annesi",
+    "brideFather": "Gelin babası",
+    "groomMother": "Damat annesi",
+    "groomFather": "Damat babası",
+    "sectionBride": "Gelin tarafı",
+    "sectionGroom": "Damat tarafı",
+    "nameHint": "Lütfen ad ve soyad şeklinde giriniz.",
+    "stepVenueTitle": "Tarih & mekân",
+    "date": "Tarih",
+    "time": "Saat",
+    "venueName": "Mekân adı",
+    "venueAddress": "Mekân adresi",
+    "mapsLink": "Google Haritalar linki (isteğe bağlı)",
+    "phone": "Telefon numaranız",
+    "phonePrefix": "TR +90",
+    "phoneHint": "Siparişiniz tamamlandıktan sonra sizinle bu numara üzerinden iletişime geçilecektir.",
+    "stepMusicTitle": "Arka plan müziği",
+    "musicHint": "Dinlemek için oynatın; seçmek için karta dokunun.",
+    "recommended": "Önerilen",
+    "stepReviewTitle": "Özet",
+    "reviewNames": "Çift",
+    "reviewVenue": "Tarih & mekân",
+    "reviewMusic": "Seçilen müzik",
+    "none": "—",
+    "successTitle": "Taslak kaydedildi",
+    "successBody": "Bilgileriniz bu cihazda güvenle saklandı. LCV özetini görmek için paneli açabilir veya ana sayfaya dönebilirsiniz.",
+    "successTitleCloud": "Kayıt ve kişisel panel hazır",
+    "successBodyCloud": "Bulutta kişisel LCV panel bağlantınız oluşturuldu. Bağlantıyı kaydedin veya WhatsApp ile kendinize gönderin.",
+    "successWhatsApp": "WhatsApp ile panel linkini gönder",
+    "successPanelUrlLabel": "Kişisel panel bağlantısı",
+    "successCtaPanel": "LCV paneline git",
+    "venueBlockTitle": "Mekân",
+    "phVenueName": "Örn. Grand Ballroom",
+    "phVenueAddress": "Sokak, ilçe, şehir",
+    "phMapsLink": "https://maps.google.com/...",
+    "phPhone": "5xx xxx xx xx",
+    "exampleBride": "Ayşe Yılmaz",
+    "exampleGroom": "Mehmet Kaya",
+    "exampleVenue": "Grand Davet Salonu",
+    "exampleAddress": "Vişnezade Mah. Acısu Sok. No:19\nBeşiktaş / İstanbul",
+    "exampleDateLabel": "15 Ağustos 2026 · 19:30",
+    "livePreviewTitle": "Canlı davetiye önizlemesi",
+    "studioPreviewHint": "Yazdığınız isimler anında bu slaytta görünür.",
+    "previewEyebrow": "Davetimize",
+    "previewTagline": "Mutluluğumuza davetlisiniz",
+    "mapsPreviewCta": "Haritada konumu aç",
+    "musicTracks": [
+      { "id": "t1", "title": "Andre Rieu — The Second Waltz", "sub": "Arka plan müziği", "recommended": true },
+      { "id": "t2", "title": "Mendelssohn — Wedding March", "sub": "Arka plan müziği", "recommended": false },
+      { "id": "t3", "title": "Yann Tiersen — Comptine", "sub": "Arka plan müziği", "recommended": false },
+      { "id": "t4", "title": "Debussy — Clair de Lune", "sub": "Arka plan müziği", "recommended": false },
+      { "id": "t5", "title": "Einaudi — Nuvole Bianche", "sub": "Arka plan müziği", "recommended": false },
+      { "id": "t6", "title": "Pachelbel — Canon in D", "sub": "Arka plan müziği", "recommended": false }
+    ]
+  },
+  "TemplatesCatalog": {
+    "serenade_hall": {
+      "title": "Düğün davetiyesi — Sonsuz Aşk",
+      "intro": "Salon düğünü için sıcak tonlar, zarif tipografi ve animasyonlu giriş."
+    },
+    "meadow_vows": {
+      "title": "Düğün davetiyesi — Çiğdem Tepesi",
+      "intro": "Açık hava ve doğal ışık için yumuşak pastel ve ferah düzen."
+    },
+    "civic_bloom": {
+      "title": "Nikah davetiyesi — Beyaz Kartuş",
+      "intro": "Resmi tören için sade çizgiler ve net tarih / mekân blokları."
+    },
+    "ivory_union": {
+      "title": "Nikah davetiyesi — Fildişi Işığı",
+      "intro": "Minimal alyans ve tipografi odaklı, kurumsal hisli nikah davetiyesi."
+    },
+    "rose_script": {
+      "title": "Düğün davetiyesi — Gümüş Gece",
+      "intro": "El yazısı hissi veren başlıklar ve damga mührü detayı."
+    },
+    "pearl_mist": {
+      "title": "Nişan davetiyesi — Safir Yüzük",
+      "intro": "İnce tül ve nişan tonları; zarif çerçeve ve yumuşak ışık."
+    },
+    "golden_hour": {
+      "title": "Kına davetiyesi — Yakut Gece",
+      "intro": "Gece mavisi ve sıcak vurgularla kına gecesine özel atmosfer."
+    },
+    "marble_vow": {
+      "title": "Nikah davetiyesi — Mermer Zarafeti",
+      "intro": "Mermer doku ve ince çerçeve ile belediye nikahına uygun ciddi şıklık."
+    }
+  },
+  "Landing": {
+    "nav": {
+      "home": "Anasayfa",
+      "howItWorks": "Nasıl çalışır?",
+      "features": "Özellikler",
+      "templates": "Şablonlar",
+      "catalog": "Katalog",
+      "pricing": "Fiyatlandırma",
+      "faq": "Sıkça sorulan sorular",
+      "panel": "LCV paneli",
+      "more": "Diğer",
+      "ctaCreate": "Davet oluştur"
+    },
+    "blogTeaser": "Blog çok yakında — ipuçları ve şablon hikâyeleri burada olacak.",
+    "hero": {
+      "eyebrow": "Şık dijital davetiyeler",
+      "headline": "Hayalinizdeki davetiyeyi oluşturun",
+      "scriptLine": "En özel gününüz için",
+      "ctaPrimary": "Ücretsiz oluştur"
+    },
+    "heroSlider": {
+      "collectionLine": "Küratörlü koleksiyon",
+      "exploreCta": "Hemen İncele",
+      "prevAria": "Önceki şablon",
+      "nextAria": "Sonraki şablon"
+    },
+    "howItWorks": {
+      "title": "Akış üç adımda biter",
+      "step1Title": "Atmosfer seç",
+      "step1Desc": "Düğün, nikah, nişan ve kına için hazır şablonlardan birini seçin.",
+      "step2Title": "Davetio Studio",
+      "step2Desc": "Çift, tarih, mekân ve müzik adımlarını tamamla; her ekran mobilde test edildi.",
+      "step3Title": "Tek bağlantı",
+      "step3Desc": "Özel paylaşım kartı ve kısa URL; yanıtlar panelde özetlenir."
+    },
+    "categories": [
+      { "id": "all", "label": "Tümü" },
+      { "id": "wedding", "label": "Düğün" },
+      { "id": "nikah", "label": "Nikah" },
+      { "id": "henna", "label": "Kına" },
+      { "id": "engagement", "label": "Nişan" }
+    ],
+    "pricingTeaser": {
+      "title": "Fiyatlar",
+      "body": "Şu an tek paket: 999 TL. Tüm premium özellikler ve düzenlemeler dahildir. Ödeme Iyzico güvencesiyle alınır."
+    },
+    "features": {
+      "title": "Özet avantajlar",
+      "subtitle": "Davetliler için akıcı deneyim, sizin için sade yönetim.",
+      "items": [
+        {
+          "icon": "listChecks",
+          "title": "LCV takibi",
+          "desc": "Katılım yanıtları anında özetlenir; kişi sayıları tek ekranda."
+        },
+        {
+          "icon": "palette",
+          "title": "Şablona göre kurulum",
+          "desc": "Düğün ve nikah için hazır bloklar; metinleri dakikalar içinde uyarlayın."
+        },
+        {
+          "icon": "shieldCheck",
+          "title": "Güvenli ödeme",
+          "desc": "Iyzico ile ödeme; veriler Supabase ile korunur."
+        }
+      ]
+    },
+    "experience": {
+      "tag": "Deneyim",
+      "title": "Sadece bir sayfa değil, tam bir kutlama akışı",
+      "subtitle": "Davetliler haritayı açar, müziği duyar, fotoğraf bırakır; siz panelden her şeyi izlersiniz.",
+      "mapCta": "Harita ile yol tarifi",
+      "sharePreviewTitle": "Örnek paylaşım kartı · Davetio",
+      "musicPreviewLine": "Seçilen parça · önizleme",
+      "items": [
+        {
+          "type": "map",
+          "badge": "Konum",
+          "title": "Mekânı net gösterin",
+          "desc": "Harita ve adres bir arada; tek dokunuşla yol tarifi."
+        },
+        {
+          "type": "rsvp",
+          "badge": "LCV",
+          "title": "Katılımı canlı izleyin",
+          "desc": "Onay, ret ve kişi sayıları anında özetlenir."
+        },
+        {
+          "type": "countdown",
+          "badge": "Geri sayım",
+          "title": "Heyecanı tazeleyin",
+          "desc": "Gün, saat ve dakika canlı akar; her ziyarette yenilenir."
+        },
+        {
+          "type": "music",
+          "badge": "Müzik",
+          "title": "Arka plan sesi",
+          "desc": "Davetiye açıldığında seçtiğiniz parça çalabilir."
+        },
+        {
+          "type": "photos",
+          "badge": "Anılar",
+          "title": "Misafir fotoğrafları",
+          "desc": "Kutlama anlarını güvenli alanda toplayın."
+        },
+        {
+          "type": "panel",
+          "badge": "Panel",
+          "title": "Kontrol sizde",
+          "desc": "LCV ve içerik güncellemeleri tek yerden."
+        },
+        {
+          "type": "share",
+          "badge": "Paylaşım",
+          "title": "Tek link, her kanal",
+          "desc": "WhatsApp ve SMS için optimize önizleme."
+        }
+      ]
+    },
+    "templates": {
+      "title": "Şablon vitrin",
+      "subtitle": "Kategoriye göre filtreleyin; karttan detaya gidin veya önizlemeyi açın.",
+      "preview": "Önizle",
+      "viewProduct": "Ürünü Gör",
+      "items": [
+        {
+          "slug": "serenade-hall",
+          "filterId": "wedding",
+          "name": "Düğün Davetiyesi — Sonsuz Aşk",
+          "category": "Düğün",
+          "tag": "Popüler",
+          "image": "/images/templates/serenade-hall.png",
+          "imageAlt": "Sonsuz Aşk şablonu — örnek isim ve tarihli davetiye önizlemesi",
+          "cardEyebrow": "Düğünümüze",
+          "cardCouple": "Deniz & Ece",
+          "cardDate": "14 Haziran 2026",
+          "priceStrike": "₺4.999",
+          "priceCurrent": "₺999"
+        },
+        {
+          "slug": "meadow-vows",
+          "filterId": "wedding",
+          "name": "Düğün Davetiyesi — Çiğdem Tepesi",
+          "category": "Düğün",
+          "tag": "Yeni",
+          "image": "/images/templates/meadow-vows.png",
+          "imageAlt": "Çiğdem Tepesi şablonu — örnek isim ve tarihli davetiye önizlemesi",
+          "cardEyebrow": "Bahçede kutlamaya",
+          "cardCouple": "Selin & Can",
+          "cardDate": "22 Ağustos 2026",
+          "priceStrike": "₺4.799",
+          "priceCurrent": "₺999"
+        },
+        {
+          "slug": "civic-bloom",
+          "filterId": "nikah",
+          "name": "Nikah Davetiyesi — Beyaz Kartuş",
+          "category": "Nikah",
+          "tag": "Resmi",
+          "image": "/images/templates/civic-bloom.png",
+          "imageAlt": "Beyaz Kartuş şablonu — örnek isim ve tarihli davetiye önizlemesi",
+          "cardEyebrow": "Nikah törenimize",
+          "cardCouple": "Ayşe & Kerem",
+          "cardDate": "5 Ekim 2026",
+          "priceStrike": "₺3.999",
+          "priceCurrent": "₺999"
+        },
+        {
+          "slug": "ivory-union",
+          "filterId": "nikah",
+          "name": "Nikah Davetiyesi — Fildişi Işığı",
+          "category": "Nikah",
+          "tag": "Minimal",
+          "image": "/images/templates/ivory-union.png",
+          "imageAlt": "Fildişi Işığı şablonu — örnek isim ve tarihli davetiye önizlemesi",
+          "cardEyebrow": "Sadelikle davet",
+          "cardCouple": "Zeynep & Mert",
+          "cardDate": "18 Mayıs 2026",
+          "priceStrike": "₺3.599",
+          "priceCurrent": "₺999"
+        },
+        {
+          "slug": "rose-script",
+          "filterId": "wedding",
+          "name": "Düğün Davetiyesi — Gümüş Gece",
+          "category": "Düğün",
+          "tag": "Seçkin",
+          "image": "/images/templates/rose-script.png",
+          "imageAlt": "Gümüş Gece şablonu — örnek isim ve tarihli davetiye önizlemesi",
+          "cardEyebrow": "Gece törenimize",
+          "cardCouple": "Leyla & Arda",
+          "cardDate": "12 Eylül 2026",
+          "priceStrike": "₺4.599",
+          "priceCurrent": "₺999"
+        },
+        {
+          "slug": "pearl-mist",
+          "filterId": "engagement",
+          "name": "Nişan Davetiyesi — Safir Yüzük",
+          "category": "Nişan",
+          "tag": "Yeni",
+          "image": "/images/templates/pearl-mist.png",
+          "imageAlt": "Safir Yüzük şablonu — örnek isim ve tarihli davetiye önizlemesi",
+          "cardEyebrow": "Nişanımıza",
+          "cardCouple": "Burcu & Emir",
+          "cardDate": "3 Kasım 2026",
+          "priceStrike": "₺3.299",
+          "priceCurrent": "₺999"
+        },
+        {
+          "slug": "golden-hour",
+          "filterId": "henna",
+          "name": "Kına Davetiyesi — Yakut Gece",
+          "category": "Kına",
+          "tag": "Popüler",
+          "image": "/images/templates/golden-hour.png",
+          "imageAlt": "Yakut Gece şablonu — örnek isim ve tarihli davetiye önizlemesi",
+          "cardEyebrow": "Kına gecesine",
+          "cardCouple": "Hande & Kaan",
+          "cardDate": "8 Temmuz 2026",
+          "priceStrike": "₺3.199",
+          "priceCurrent": "₺999"
+        },
+        {
+          "slug": "marble-vow",
+          "filterId": "nikah",
+          "name": "Nikah Davetiyesi — Mermer Zarafeti",
+          "category": "Nikah",
+          "tag": "Kurumsal",
+          "image": "/images/templates/marble-vow.png",
+          "imageAlt": "Mermer Zarafeti şablonu — örnek isim ve tarihli davetiye önizlemesi",
+          "cardEyebrow": "Resmî törenimize",
+          "cardCouple": "Elif & Onur",
+          "cardDate": "15 Mart 2026",
+          "priceStrike": "₺3.899",
+          "priceCurrent": "₺999"
+        }
+      ]
+    },
+    "previewModal": {
+      "close": "Kapat",
+      "swipe": "Kaydır",
+      "inviteLiveHint": "Arka planda sessiz atmosfer videosu (mobilde de oynar). Kendi klibinizi `.env` ile veya şablonda `videoSrc` ile verebilirsiniz. Tam ekran için «Video» sekmesi.",
+      "subtitle": "Davetio önizleme",
+      "tabInvite": "Canlı önizleme",
+      "tabVideo": "Video",
+      "videoNote": "Örnek atmosfer videosu; davetinizde kendi klibinizi kullanabilirsiniz.",
+      "videoSrc": "https://videos.pexels.com/video-files/3038213/3038213-hd_1920_1080_30fps.mp4",
+      "previewNames": "Deniz & Ece",
+      "previewDate": "12 Eylül 2026 · 19:30",
+      "previewEyebrow": "Düğünümüze",
+      "previewTagline": "Mutluluğumuza davetlisiniz",
+      "previewVenue": "Grand Davet Salonu · Beşiktaş, İstanbul",
+      "previewMapsCta": "Haritada aç · yol tarifi"
+    },
+    "footer": {
+      "tagline": "Düğün ve nikah için premium dijital davetiye.",
+      "columnProduct": "Ürün",
+      "columnLegal": "Yasal",
+      "linkTemplates": "Şablonlar",
+      "linkCatalog": "E-ticaret kataloğu",
+      "linkPricing": "Fiyatlar",
+      "linkFeatures": "Özellikler",
+      "linkPanel": "LCV paneli",
+      "linkPrivacy": "Gizlilik",
+      "linkTerms": "Koşullar",
+      "copy": "© {year} Davetio. Tüm hakları saklıdır."
+    }
+  }
+}

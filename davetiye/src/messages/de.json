@@ -1,0 +1,732 @@
+{
+  "Metadata": {
+    "title": "Davetio · Hochzeit & Standesamt digital",
+    "description": "Erstellen Sie mit Davetio Ihre Hochzeits- und Standesamt-Einladung in wenigen Minuten — RSVP, Karte und teilbarer Link."
+  },
+  "Legal": {
+    "privacyTitle": "Datenschutz",
+    "privacyBody": "Ausführliche Informationen zur Verarbeitung personenbezogener Daten werden hier in Kürze veröffentlicht. Bei Fragen erreichen Sie uns über unsere Kontaktwege.",
+    "termsTitle": "Nutzungsbedingungen",
+    "termsBody": "Die Bedingungen zur Nutzung des Angebots werden hier in Kürze veröffentlicht.",
+    "backHome": "Zur Startseite"
+  },
+  "Panel": {
+    "title": "RSVP-Panel",
+    "subtitle": "Zusagen und Übersicht an einem Ort; Ihr Entwurf wird in diesem Browser gespeichert.",
+    "draftBadge": "Gespeicherter Entwurf",
+    "draftTitle": "Ihre zuletzt gespeicherte Einladung",
+    "draftCouple": "Paar",
+    "draftWhen": "Datum und Uhrzeit",
+    "draftVenue": "Location",
+    "draftPhone": "Kontakt",
+    "draftMusic": "Musik",
+    "draftTemplate": "Vorlage",
+    "emptyGuestList": "Noch keine Gästeantworten. Sobald Sie Ihren Einladungslink teilen, erscheinen die RSVP-Antworten hier.",
+    "statConfirmed": "Zusage",
+    "statPending": "Unklar",
+    "statDeclined": "Absage",
+    "statGuests": "Personen (gesamt)",
+    "statResponses": "Antworten",
+    "sectionGuests": "Gästeliste",
+    "colGuest": "Gast",
+    "colStatus": "Status",
+    "colParty": "Personen",
+    "colWhen": "Aktualisiert",
+    "statusYes": "Dabei",
+    "statusMaybe": "Unklar",
+    "statusNo": "Nein",
+    "footerNote": "Nach Veröffentlichung erhalten Sie einen persönlichen Link und sicheren Zugang zum vollen Panel. Daten liegen derzeit nur auf diesem Gerät.",
+    "ctaHome": "Startseite",
+    "ctaCreate": "Neue Einladung",
+    "cloudBadge": "Cloud-Panel",
+    "subtitleCloud": "Dieser Link ist persönlich. Sie können Texte und Details hier anpassen.",
+    "loading": "Wird geladen…",
+    "loadError": "Panel nicht gefunden oder Link ungültig.",
+    "saveError": "Speichern fehlgeschlagen. Bitte erneut versuchen.",
+    "save": "Änderungen speichern",
+    "saving": "Wird gespeichert…",
+    "saved": "Gespeichert",
+    "editTitle": "Einladung bearbeiten",
+    "editHint": "Namen, Datum, Ort und Kontakt können Sie hier ändern.",
+    "fieldBride": "Braut",
+    "fieldGroom": "Bräutigam",
+    "fieldBrideMother": "Mutter der Braut",
+    "fieldBrideFather": "Vater der Braut",
+    "fieldGroomMother": "Mutter des Bräutigams",
+    "fieldGroomFather": "Vater des Bräutigams",
+    "fieldDate": "Datum",
+    "fieldTime": "Uhrzeit",
+    "fieldVenueName": "Location",
+    "fieldVenueAddress": "Adresse",
+    "fieldMaps": "Kartenlink (optional)",
+    "fieldPhone": "Telefon",
+    "fieldMusic": "Musik",
+    "footerNoteCloud": "RSVP-Antworten erscheinen hier, sobald der Einladungslink geteilt wurde.",
+    "rows": []
+  },
+  "Vitrine": {
+    "navLogin": "Anmelden",
+    "navCreate": "Einladung erstellen",
+    "navGallery": "Atmosphäre",
+    "navPricing": "Paket",
+    "langLabel": "Sprache",
+    "heroEyebrow": "Digitale Einladung · RSVP · ein Link",
+    "heroTitle": "Ihre Einladung wie ein Kunstwerk.",
+    "heroLead": "Kurierte Vorlagen, Glas-UI und intelligentes RSVP — alles in einem Link. Kein Bilderjagd-Stress: wir setzen den Ton.",
+    "heroCta": "Eigene Einladung gestalten",
+    "heroSecondary": "Vorlagen entdecken",
+    "galleryEyebrow": "Bildsprache",
+    "galleryTitle": "Premium-Stimmung, ein Auftritt",
+    "galleryLead": "Floristik, Architektur und Tischinszenierung — gerahmt in Glas, harmonisch mit dem Seitenhintergrund.",
+    "galleryCap1": "Blumen & Textur",
+    "galleryCap2": "Raum & Linie",
+    "galleryCap3": "Tisch & Licht",
+    "pricingEyebrow": "Klarer Preis",
+    "pricingTitle": "Ein Paket, volle Leistung",
+    "pricingLead": "Alle Premium-Funktionen inklusive — ohne versteckte Zeilen.",
+    "pricePlan": "Davetio Premium",
+    "priceStrike": "249 €",
+    "priceCurrent": "29 €",
+    "priceFeature1": "RSVP-Panel und Gästeübersicht",
+    "priceFeature2": "Karte, Musik und Share-Card",
+    "priceFeature3": "Unbegrenzte Text-Runde pro Vorlage",
+    "priceFeature4": "Veröffentlichung und Link-Sicherheit",
+    "priceCta": "Zum Paket",
+    "featuresEyebrow": "Warum wir?",
+    "featuresTitle": "Luxus in jedem Detail",
+    "featuresLead": "Davetio liefert Premium-Infrastruktur für Hochzeit, Standesamt und besondere Anlässe.",
+    "feature1Title": "Intelligentes RSVP",
+    "feature1Desc": "Antworten werden sofort zusammengefasst; Personen und Notizen in einem Panel.",
+    "feature2Title": "Kuratierte Vorlagen",
+    "feature2Desc": "Bild und Typografie als Einheit — in wenigen Minuten personalisieren.",
+    "feature3Title": "Ein Teilen-Link",
+    "feature3Desc": "WhatsApp, SMS oder E-Mail — überall mit eleganter Vorschaukarte.",
+    "templatesEyebrow": "Beispiele",
+    "templatesTitle": "Vorlagen im Polaroid-Stil",
+    "templatesLead": "Hover — Vorschau öffnen und Ihre Geschichte schreiben.",
+    "preview": "Vorschau",
+    "template1Name": "Stern der Liebe",
+    "template2Name": "Krokushügel",
+    "template3Name": "Weiße Kartusche",
+    "footerTagline": "Premium digitale Einladungen.",
+    "footerClaims": "RSVP · Karte · Musik · Share-Card",
+    "footerCopy": "© {year} Davetio. Alle Rechte vorbehalten."
+  },
+  "Catalog": {
+    "brand": "Davetio",
+    "headline": "Wählen Sie Ihre Einladung",
+    "lead": "Hochzeit, Standesamt, Verlobung und Henna — Vorlagen in Minuten personalisiert, inkl. RSVP und Teilen.",
+    "tagline": "Digitale Einladungen — Katalog",
+    "catAll": "Alle",
+    "catWedding": "Hochzeit",
+    "catEngagement": "Verlobung",
+    "catHenna": "Henna",
+    "catNikah": "Standesamt",
+    "viewProduct": "Produkt ansehen",
+    "badgePopular": "Beliebt",
+    "badgeNew": "Neu",
+    "priceOld": "249 €",
+    "priceCurrent": "29 €",
+    "footerNote": "© {year} Davetio",
+    "emptyCategory": "Keine Produkte in dieser Kategorie.",
+    "products": [
+      {
+        "slug": "serenade-hall",
+        "filter": "dugun",
+        "name": "Hochzeitseinladung — Stern der Liebe",
+        "badge": "popular",
+        "label": "HOCHZEIT",
+        "imageAlt": "Vorlage Stern der Liebe — Einladungsvorschau mit Beispielnamen und Datum",
+        "cardEyebrow": "Zur Hochzeit",
+        "cardCouple": "Mara & Leon",
+        "cardDate": "14. Juni 2026",
+        "priceStrike": "129 €",
+        "priceCurrent": "29 €"
+      },
+      {
+        "slug": "rose-script",
+        "filter": "dugun",
+        "name": "Hochzeitseinladung — Silbermond",
+        "badge": "new",
+        "label": "HOCHZEIT",
+        "imageAlt": "Vorlage Silbermond — Einladungsvorschau mit Beispielnamen und Datum",
+        "cardEyebrow": "Zur Abendfeier",
+        "cardCouple": "Sophie & Jan",
+        "cardDate": "12. September 2026",
+        "priceStrike": "129 €",
+        "priceCurrent": "29 €"
+      },
+      {
+        "slug": "pearl-mist",
+        "filter": "nisan",
+        "name": "Verlobungseinladung — Saphirring",
+        "badge": "popular",
+        "label": "VERLOBUNG",
+        "imageAlt": "Vorlage Saphirring — Einladungsvorschau mit Beispielnamen und Datum",
+        "cardEyebrow": "Zur Verlobung",
+        "cardCouple": "Nina & David",
+        "cardDate": "3. November 2026",
+        "priceStrike": "99 €",
+        "priceCurrent": "24 €"
+      },
+      {
+        "slug": "golden-hour",
+        "filter": "kina",
+        "name": "Henna-Einladung — Rubinnacht",
+        "badge": "new",
+        "label": "HENNA",
+        "imageAlt": "Vorlage Rubinnacht — Einladungsvorschau mit Beispielnamen und Datum",
+        "cardEyebrow": "Zur Henna-Nacht",
+        "cardCouple": "Elif & Burak",
+        "cardDate": "8. Juli 2026",
+        "priceStrike": "119 €",
+        "priceCurrent": "26 €"
+      },
+      {
+        "slug": "meadow-vows",
+        "filter": "dugun",
+        "name": "Hochzeitseinladung — Krokushügel",
+        "badge": "popular",
+        "label": "HOCHZEIT",
+        "imageAlt": "Vorlage Krokushügel — Einladungsvorschau mit Beispielnamen und Datum",
+        "cardEyebrow": "Feier im Grünen",
+        "cardCouple": "Eva & Tom",
+        "cardDate": "22. August 2026",
+        "priceStrike": "109 €",
+        "priceCurrent": "24 €"
+      },
+      {
+        "slug": "ivory-union",
+        "filter": "nikah",
+        "name": "Standesamtseinladung — Elfenbeinlicht",
+        "badge": "new",
+        "label": "STANDESAMT",
+        "imageAlt": "Vorlage Elfenbeinlicht — Einladungsvorschau mit Beispielnamen und Datum",
+        "cardEyebrow": "Zur Trauung",
+        "cardCouple": "Nora & Felix",
+        "cardDate": "18. Mai 2026",
+        "priceStrike": "189 €",
+        "priceCurrent": "29 €"
+      },
+      {
+        "slug": "civic-bloom",
+        "filter": "nikah",
+        "name": "Standesamtseinladung — Weiße Kartusche",
+        "badge": "new",
+        "label": "STANDESAMT",
+        "imageAlt": "Vorlage Weiße Kartusche — Einladungsvorschau mit Beispielnamen und Datum",
+        "cardEyebrow": "Zur Trauung",
+        "cardCouple": "Leyla & Emir",
+        "cardDate": "5. Oktober 2026",
+        "priceStrike": "199 €",
+        "priceCurrent": "29 €"
+      },
+      {
+        "slug": "marble-vow",
+        "filter": "nikah",
+        "name": "Standesamtseinladung — Marmor-Eleganz",
+        "badge": "popular",
+        "label": "STANDESAMT",
+        "imageAlt": "Vorlage Marmor-Eleganz — Einladungsvorschau mit Beispielnamen und Datum",
+        "cardEyebrow": "Zur Zeremonie",
+        "cardCouple": "Anna & Marc",
+        "cardDate": "15. März 2026",
+        "priceStrike": "134 €",
+        "priceCurrent": "29 €"
+      }
+    ]
+  },
+  "FAQ": {
+    "tag": "Häufige Fragen",
+    "title": "Antworten auf einen Blick",
+    "items": [
+      {
+        "q": "Für welche Anlässe kann ich Einladungen erstellen?",
+        "a": "Bei Davetio erstellen Sie Einladungen für Hochzeit, Standesamt, Verlobung und Henna."
+      },
+      {
+        "q": "Wie lange bleibt meine Einladung aktiv?",
+        "a": "Nach Veröffentlichung bleibt Ihr Link lange erreichbar; die genaue Laufzeit wird bei der Bestellung transparent mitgeteilt."
+      },
+      {
+        "q": "Kann ich die Einladung später bearbeiten?",
+        "a": "Ja. Texte, Daten und Bilder können Sie nachträglich anpassen; Änderungen wirken sofort auf dem Link."
+      },
+      {
+        "q": "Wie teile ich die Einladung mit Gästen?",
+        "a": "Sie erhalten einen persönlichen Link und eine teilbare Vorschau — ideal für WhatsApp, SMS oder E-Mail."
+      },
+      {
+        "q": "Sind meine Daten sicher?",
+        "a": "Daten werden verschlüsselt und nicht an Dritte verkauft; die Infrastruktur folgt den Supabase-Sicherheitsrichtlinien."
+      },
+      {
+        "q": "Wie verfolge ich Zusagen (RSVP)?",
+        "a": "Sobald Gäste das Formular nutzen, erscheinen Antworten live in Ihrer Übersicht inklusive Personenzahlen."
+      },
+      {
+        "q": "Gibt es Rückerstattungen?",
+        "a": "Wenn der Link noch nicht geteilt wurde, gelten kurzfristige Rückerstattungsregeln; Details stehen auf der Bestellseite."
+      },
+      {
+        "q": "In welcher Währung sehe ich Preise?",
+        "a": "Auf der deutschsprachigen Seite sind die angezeigten Paket- und Vitrinpreise in Euro (€) ausgewiesen. Die türkische Seite zeigt entsprechend türkische Lira (₺). Der Schalter TR / DE befindet sich oben rechts."
+      },
+      {
+        "q": "Warum startet die Seite für mich auf Deutsch mit Euro-Preisen?",
+        "a": "Bei Besuchern aus Deutschland kann die Standardsprache Deutsch und die Preisanzeige in Euro gesetzt werden (Land wird über die von Ihrem Hosting-Anbieter übermittelte Geo-Information, z. B. anhand der IP, bestimmt). Sie können jederzeit auf Türkisch wechseln; Ihre Sprachwahl wird im Browser gespeichert."
+      }
+    ]
+  },
+  "HelpChat": {
+    "title": "Davetio Hilfe",
+    "openLabel": "Hilfe-Chat öffnen",
+    "closeLabel": "Schließen",
+    "pickQuestion": "Frage antippen — die Antwort erscheint darunter",
+    "fullFaqLink": "Alle Fragen (Abschnitt auf der Seite)"
+  },
+  "TemplateDetail": {
+    "back": "Zur Startseite",
+    "sampleEyebrow": "Zur Hochzeit",
+    "sampleNames": "Mara & Jonas",
+    "sampleDate": "12. September 2026 · 18:00",
+    "sampleVenue": "Festsaal Spreeufer · Berlin",
+    "sampleMapsCta": "Route",
+    "packagesTitle": "Paketwahl",
+    "featuresTitle": "Enthalten",
+    "cta": "Einladung erstellen",
+    "preview": "Live-Vorschau",
+    "reviews": "Davetio Kuratierung",
+    "saveBadge": "Bis zu 80 % sparen",
+    "packages": [
+      { "id": "solo", "label": "Nur Hochzeit" },
+      { "id": "weddingNikah", "label": "Hochzeit + Standesamt" },
+      { "id": "weddingHenna", "label": "Hochzeit + Henna" },
+      { "id": "nikahOnly", "label": "Nur Standesamt" }
+    ],
+    "features": [
+      "Lieferablauf noch am selben Tag teilbar",
+      "Optionaler Hintergrund-Sound beim Öffnen",
+      "Karte, RSVP, Galerie, Countdown und Notizfeld",
+      "Einladungslink langfristig erreichbar"
+    ]
+  },
+  "CreateFlow": {
+    "title": "Einladung erstellen",
+    "hint": "Vier kurze Schritte — inklusive Musik-Vorschau und Zusammenfassung.",
+    "backHome": "Startseite",
+    "back": "Zurück",
+    "continue": "Weiter",
+    "finish": "Fertig",
+    "studioLabel": "Davetio Studio",
+    "templateLabel": "Vorlage",
+    "required": "Bitte Pflichtfelder ausfüllen.",
+    "flowProgress": "Schritt {current} / {total}",
+    "hintLong": "Wählen Sie Anlass und Vorlage, dann Paar- und Ortsangaben. Die Live-Vorschau startet nach der Vorlagenauswahl.",
+    "onboardingPickEvent": "Bitte einen Anlass wählen.",
+    "onboardingPickBundle": "Bitte ein Paket wählen.",
+    "onboardingPickTemplate": "Bitte eine Einladungsvorlage wählen.",
+    "welcomeTitle": "Ihre Traum-Einladung",
+    "welcomeSubtitle": "In wenigen Schritten zur Hochzeits-, Standesamt-, Henna- oder Verlobungseinladung — mit animierter Vorschau.",
+    "welcomeCta": "Los geht’s",
+    "eventTitle": "Anlass",
+    "eventSubtitle": "Welche Feier planen Sie?",
+    "eventWedding": "Hochzeit",
+    "eventWeddingDesc": "Elegante Einladung für Salon oder Garten.",
+    "eventNikah": "Standesamt",
+    "eventNikahDesc": "Formell und klar für die Trauung.",
+    "eventHenna": "Henna",
+    "eventHennaDesc": "Traditionelle Henna-Nacht.",
+    "eventEngagement": "Verlobung",
+    "eventEngagementDesc": "Teilen Sie Ihre Verlobung.",
+    "bundleTitle": "Paket",
+    "bundleSubtitle": "Für wie viele Anlässe soll die Einladung gelten?",
+    "bundleSoloWedding": "Nur Hochzeit",
+    "bundleSoloWeddingPrice": "29 €",
+    "bundleWeddingNikah": "Hochzeit + Standesamt",
+    "bundleWeddingNikahPrice": "29 €",
+    "bundleWeddingHenna": "Hochzeit + Henna",
+    "bundleWeddingHennaPrice": "29 €",
+    "bundleSoloEngagement": "Nur Verlobung",
+    "bundleSoloEngagementPrice": "29 €",
+    "bundleSoloNikah": "Nur Standesamt",
+    "bundleSoloNikahPrice": "29 €",
+    "bundleSoloHenna": "Nur Henna",
+    "bundleSoloHennaPrice": "29 €",
+    "templatePickTitle": "Vorlage wählen",
+    "templatePickSubtitle": "Tippen Sie auf ein Design — die Live-Vorschau folgt im nächsten Schritt.",
+    "templateDemo": "Vorschau",
+    "closeDemo": "Schließen",
+    "flowStepTitles": [
+      "Ihre Einladung",
+      "Anlass",
+      "Paket",
+      "Vorlage",
+      "Paar",
+      "Datum & Ort",
+      "Musik",
+      "Überblick"
+    ],
+    "steps": ["Paar", "Datum & Ort", "Musik", "Überblick"],
+    "stepNamesTitle": "Paar-Angaben",
+    "bride": "Vorname Braut",
+    "groom": "Vorname Bräutigam",
+    "brideMother": "Mutter der Braut",
+    "brideFather": "Vater der Braut",
+    "groomMother": "Mutter des Bräutigams",
+    "groomFather": "Vater des Bräutigams",
+    "sectionBride": "Seite der Braut",
+    "sectionGroom": "Seite des Bräutigams",
+    "nameHint": "Bitte Vor- und Nachname angeben.",
+    "stepVenueTitle": "Datum & Ort",
+    "date": "Datum",
+    "time": "Uhrzeit",
+    "venueName": "Location-Name",
+    "venueAddress": "Adresse",
+    "mapsLink": "Google-Maps-Link (optional)",
+    "phone": "Ihre Telefonnummer",
+    "phonePrefix": "DE +49",
+    "phoneHint": "Nach der Bestellung erreichen wir Sie unter dieser Nummer.",
+    "stepMusicTitle": "Hintergrundmusik",
+    "musicHint": "Zum Anhören abspielen; zum Auswählen die Karte antippen.",
+    "recommended": "Empfohlen",
+    "stepReviewTitle": "Überblick",
+    "reviewNames": "Paar",
+    "reviewVenue": "Datum & Ort",
+    "reviewMusic": "Musik",
+    "none": "—",
+    "successTitle": "Entwurf gespeichert",
+    "successBody": "Ihre Angaben wurden in diesem Browser gespeichert. Öffnen Sie das Panel für die RSVP-Übersicht oder kehren Sie zur Startseite zurück.",
+    "successTitleCloud": "Entwurf und persönliches Panel bereit",
+    "successBodyCloud": "Ihr persönliches RSVP-Panel wurde in der Cloud angelegt. Link speichern oder per WhatsApp an sich senden.",
+    "successWhatsApp": "Link per WhatsApp senden",
+    "successPanelUrlLabel": "Persönlicher Panel-Link",
+    "successCtaPanel": "Zum RSVP-Panel",
+    "venueBlockTitle": "Ort",
+    "phVenueName": "z. B. Festsaal Riverside",
+    "phVenueAddress": "Straße, PLZ, Stadt",
+    "phMapsLink": "https://maps.google.com/...",
+    "phPhone": "151 23456789",
+    "exampleBride": "Anna Müller",
+    "exampleGroom": "Jonas Schmidt",
+    "exampleVenue": "Festsaal Riverside",
+    "exampleAddress": "Spreeufer 12\n10178 Berlin",
+    "exampleDateLabel": "12. September 2026 · 18:00",
+    "livePreviewTitle": "Live-Einladungsvorschau",
+    "studioPreviewHint": "Ihre Namen erscheinen hier sofort.",
+    "previewEyebrow": "Zur Feier",
+    "previewTagline": "Wir würden uns freuen, Sie dabei zu haben",
+    "mapsPreviewCta": "Standort in der Karte",
+    "musicTracks": [
+      { "id": "t1", "title": "Andre Rieu — The Second Waltz", "sub": "Hintergrundmusik", "recommended": true },
+      { "id": "t2", "title": "Mendelssohn — Hochzeitsmarsch", "sub": "Hintergrundmusik", "recommended": false },
+      { "id": "t3", "title": "Yann Tiersen — Comptine", "sub": "Hintergrundmusik", "recommended": false },
+      { "id": "t4", "title": "Debussy — Clair de Lune", "sub": "Hintergrundmusik", "recommended": false },
+      { "id": "t5", "title": "Einaudi — Nuvole bianche", "sub": "Hintergrundmusik", "recommended": false },
+      { "id": "t6", "title": "Pachelbel — Kanon in D", "sub": "Hintergrundmusik", "recommended": false }
+    ]
+  },
+  "TemplatesCatalog": {
+    "serenade_hall": {
+      "title": "Hochzeitseinladung — Stern der Liebe",
+      "intro": "Warme Töne und elegante Typografie für den Festsaal."
+    },
+    "meadow_vows": {
+      "title": "Hochzeitseinladung — Krokushügel",
+      "intro": "Pastell und viel Luft für Garten- und Outdoor-Hochzeiten."
+    },
+    "civic_bloom": {
+      "title": "Standesamtseinladung — Weiße Kartusche",
+      "intro": "Klare Linien für das Amt — Datum und Ort sofort erkennbar."
+    },
+    "ivory_union": {
+      "title": "Standesamtseinladung — Elfenbeinlicht",
+      "intro": "Minimal mit Ring-Motiv und ruhiger Typografie."
+    },
+    "rose_script": {
+      "title": "Hochzeitseinladung — Silbermond",
+      "intro": "Handschrift-Charakter und Siegel-Details."
+    },
+    "pearl_mist": {
+      "title": "Verlobungseinladung — Saphirring",
+      "intro": "Zarter Tüll und Verlobungsstimmung mit ruhigem Rahmen."
+    },
+    "golden_hour": {
+      "title": "Henna-Einladung — Rubinnacht",
+      "intro": "Nachtblau und warme Akzente für die Henna-Feier."
+    },
+    "marble_vow": {
+      "title": "Standesamtseinladung — Marmor-Eleganz",
+      "intro": "Marmor-Optik und feiner Rahmen für formelle Zeremonien."
+    }
+  },
+  "Landing": {
+    "nav": {
+      "home": "Start",
+      "howItWorks": "So funktioniert's",
+      "features": "Funktionen",
+      "templates": "Vorlagen",
+      "catalog": "Katalog",
+      "pricing": "Preise",
+      "faq": "FAQ",
+      "panel": "RSVP-Panel",
+      "more": "Mehr",
+      "ctaCreate": "Einladung erstellen"
+    },
+    "blogTeaser": "Der Blog startet bald — Tipps und Vorlagen-Geschichten folgen.",
+    "hero": {
+      "eyebrow": "Edle digitale Einladungen",
+      "headline": "Gestalten Sie die Einladung Ihrer Träume",
+      "scriptLine": "Für Ihren besonderen Tag",
+      "ctaPrimary": "Kostenlos erstellen"
+    },
+    "heroSlider": {
+      "collectionLine": "Kuratierte Kollektion",
+      "exploreCta": "Jetzt entdecken",
+      "prevAria": "Vorherige Vorlage",
+      "nextAria": "Nächste Vorlage"
+    },
+    "howItWorks": {
+      "title": "Der Ablauf in drei klaren Schritten",
+      "step1Title": "Stimmung wählen",
+      "step1Desc": "Eine Vorlage für Hochzeit, Standesamt, Verlobung oder Henna wählen.",
+      "step2Title": "Davetio Studio",
+      "step2Desc": "Paar, Datum, Ort und Musik geführt ausfüllen — jede Ansicht mobil getestet.",
+      "step3Title": "Ein Link",
+      "step3Desc": "Eigene Share-Karte und kurze URL; Antworten werden übersichtlich zusammengefasst."
+    },
+    "categories": [
+      { "id": "all", "label": "Alle" },
+      { "id": "wedding", "label": "Hochzeit" },
+      { "id": "nikah", "label": "Standesamt" },
+      { "id": "henna", "label": "Henna" },
+      { "id": "engagement", "label": "Verlobung" }
+    ],
+    "pricingTeaser": {
+      "title": "Preise",
+      "body": "Aktuell ein Paket: 29 € — alle angezeigten Beträge sind in Euro. Alle Premium-Funktionen und Anpassungen inklusive. Die Bezahlung erfolgt sicher im Checkout; die konkret angebotenen Zahlungsarten sehen Sie zum Zeitpunkt der Bestellung."
+    },
+    "features": {
+      "title": "Vorteile auf einen Blick",
+      "subtitle": "Rundum stimmiges Gästeerlebnis, übersichtlich für Sie.",
+      "items": [
+        {
+          "icon": "listChecks",
+          "title": "RSVP-Tracking",
+          "desc": "Antworten werden sofort zusammengefasst; Personenzahlen auf einen Blick."
+        },
+        {
+          "icon": "palette",
+          "title": "Schnell mit Vorlage",
+          "desc": "Fertige Blöcke für Hochzeit und Amt — Texte in wenigen Minuten angepasst."
+        },
+        {
+          "icon": "shieldCheck",
+          "title": "Sichere Zahlung",
+          "desc": "Bezahlung sicher im Checkout; Daten mit Supabase geschützt."
+        }
+      ]
+    },
+    "experience": {
+      "tag": "Erlebnis",
+      "title": "Mehr als eine Seite — ein kompletter Ablauf",
+      "subtitle": "Gäste öffnen Karte und Musik, hinterlassen Fotos; Sie steuern alles im Panel.",
+      "mapCta": "Route mit Karte",
+      "sharePreviewTitle": "Beispiel-Share-Karte · Davetio",
+      "musicPreviewLine": "Ausgewählter Titel · Vorschau",
+      "items": [
+        {
+          "type": "map",
+          "badge": "Ort",
+          "title": "Location klar zeigen",
+          "desc": "Karte und Adresse kombiniert; Navigation mit einem Tap."
+        },
+        {
+          "type": "rsvp",
+          "badge": "RSVP",
+          "title": "Zusagen live",
+          "desc": "Zusage, Absage und Personenzahlen sofort im Überblick."
+        },
+        {
+          "type": "countdown",
+          "badge": "Countdown",
+          "title": "Vorfreude halten",
+          "desc": "Tage, Stunden und Minuten live — bei jedem Öffnen aktuell."
+        },
+        {
+          "type": "music",
+          "badge": "Musik",
+          "title": "Hintergrundklang",
+          "desc": "Optionaler Sound beim Öffnen der Einladung."
+        },
+        {
+          "type": "photos",
+          "badge": "Fotos",
+          "title": "Gäste-Momente",
+          "desc": "Erinnerungen sicher in einem geschützten Bereich sammeln."
+        },
+        {
+          "type": "panel",
+          "badge": "Panel",
+          "title": "Alles zentral",
+          "desc": "RSVP und Inhaltsupdates an einem Ort."
+        },
+        {
+          "type": "share",
+          "badge": "Teilen",
+          "title": "Ein Link, alle Kanäle",
+          "desc": "Optimierte Vorschau für WhatsApp und SMS."
+        }
+      ]
+    },
+    "templates": {
+      "title": "Vorlagen-Galerie",
+      "subtitle": "Nach Kategorie filtern; zur Detailseite oder in die Vorschau wechseln.",
+      "preview": "Vorschau",
+      "viewProduct": "Produkt ansehen",
+      "items": [
+        {
+          "slug": "serenade-hall",
+          "filterId": "wedding",
+          "name": "Hochzeitseinladung — Stern der Liebe",
+          "category": "Hochzeit",
+          "tag": "Beliebt",
+          "image": "/images/templates/serenade-hall.png",
+          "imageAlt": "Vorlage Stern der Liebe — Einladungsvorschau mit Beispielnamen und Datum",
+          "cardEyebrow": "Zur Hochzeit",
+          "cardCouple": "Mara & Leon",
+          "cardDate": "14. Juni 2026",
+          "priceStrike": "249 €",
+          "priceCurrent": "29 €"
+        },
+        {
+          "slug": "meadow-vows",
+          "filterId": "wedding",
+          "name": "Hochzeitseinladung — Krokushügel",
+          "category": "Hochzeit",
+          "tag": "Neu",
+          "image": "/images/templates/meadow-vows.png",
+          "imageAlt": "Vorlage Krokushügel — Einladungsvorschau mit Beispielnamen und Datum",
+          "cardEyebrow": "Feier im Grünen",
+          "cardCouple": "Eva & Tom",
+          "cardDate": "22. August 2026",
+          "priceStrike": "239 €",
+          "priceCurrent": "29 €"
+        },
+        {
+          "slug": "civic-bloom",
+          "filterId": "nikah",
+          "name": "Standesamtseinladung — Weiße Kartusche",
+          "category": "Standesamt",
+          "tag": "Formell",
+          "image": "/images/templates/civic-bloom.png",
+          "imageAlt": "Vorlage Weiße Kartusche — Einladungsvorschau mit Beispielnamen und Datum",
+          "cardEyebrow": "Zur Trauung",
+          "cardCouple": "Leyla & Emir",
+          "cardDate": "5. Oktober 2026",
+          "priceStrike": "199 €",
+          "priceCurrent": "29 €"
+        },
+        {
+          "slug": "ivory-union",
+          "filterId": "nikah",
+          "name": "Standesamtseinladung — Elfenbeinlicht",
+          "category": "Standesamt",
+          "tag": "Minimal",
+          "image": "/images/templates/ivory-union.png",
+          "imageAlt": "Vorlage Elfenbeinlicht — Einladungsvorschau mit Beispielnamen und Datum",
+          "cardEyebrow": "Minimal eingeladen",
+          "cardCouple": "Nora & Felix",
+          "cardDate": "18. Mai 2026",
+          "priceStrike": "189 €",
+          "priceCurrent": "29 €"
+        },
+        {
+          "slug": "rose-script",
+          "filterId": "wedding",
+          "name": "Hochzeitseinladung — Silbermond",
+          "category": "Hochzeit",
+          "tag": "Exklusiv",
+          "image": "/images/templates/rose-script.png",
+          "imageAlt": "Vorlage Silbermond — Einladungsvorschau mit Beispielnamen und Datum",
+          "cardEyebrow": "Zur Abendfeier",
+          "cardCouple": "Sophie & Jan",
+          "cardDate": "12. September 2026",
+          "priceStrike": "229 €",
+          "priceCurrent": "29 €"
+        },
+        {
+          "slug": "pearl-mist",
+          "filterId": "engagement",
+          "name": "Verlobungseinladung — Saphirring",
+          "category": "Verlobung",
+          "tag": "Neu",
+          "image": "/images/templates/pearl-mist.png",
+          "imageAlt": "Vorlage Saphirring — Einladungsvorschau mit Beispielnamen und Datum",
+          "cardEyebrow": "Zur Verlobung",
+          "cardCouple": "Nina & David",
+          "cardDate": "3. November 2026",
+          "priceStrike": "169 €",
+          "priceCurrent": "29 €"
+        },
+        {
+          "slug": "golden-hour",
+          "filterId": "henna",
+          "name": "Henna-Einladung — Rubinnacht",
+          "category": "Henna",
+          "tag": "Beliebt",
+          "image": "/images/templates/golden-hour.png",
+          "imageAlt": "Vorlage Rubinnacht — Einladungsvorschau mit Beispielnamen und Datum",
+          "cardEyebrow": "Zur Henna-Nacht",
+          "cardCouple": "Elif & Burak",
+          "cardDate": "8. Juli 2026",
+          "priceStrike": "159 €",
+          "priceCurrent": "29 €"
+        },
+        {
+          "slug": "marble-vow",
+          "filterId": "nikah",
+          "name": "Standesamtseinladung — Marmor-Eleganz",
+          "category": "Standesamt",
+          "tag": "Business",
+          "image": "/images/templates/marble-vow.png",
+          "imageAlt": "Vorlage Marmor-Eleganz — Einladungsvorschau mit Beispielnamen und Datum",
+          "cardEyebrow": "Zur Zeremonie",
+          "cardCouple": "Anna & Marc",
+          "cardDate": "15. März 2026",
+          "priceStrike": "199 €",
+          "priceCurrent": "29 €"
+        }
+      ]
+    },
+    "previewModal": {
+      "close": "Schließen",
+      "swipe": "Wischen",
+      "inviteLiveHint": "Stimmungsvideo stumm im Hintergrund (auch auf dem Smartphone). Eigenes Video per `.env` oder `videoSrc` in der Vorlage. Vollbild unter «Video».",
+      "subtitle": "Davetio Vorschau",
+      "tabInvite": "Live-Vorschau",
+      "tabVideo": "Video",
+      "videoNote": "Beispiel-Stimmungsvideo; für Ihre Einladung können Sie ein eigenes Video nutzen.",
+      "videoSrc": "https://videos.pexels.com/video-files/3038213/3038213-hd_1920_1080_30fps.mp4",
+      "previewNames": "Mara & Jonas",
+      "previewDate": "12. September 2026 · 18:00",
+      "previewEyebrow": "Zur Hochzeit",
+      "previewTagline": "Wir würden uns freuen, diesen Tag mit euch zu feiern",
+      "previewVenue": "Festsaal am Wasser · Berlin-Mitte",
+      "previewMapsCta": "Karte öffnen · Route"
+    },
+    "footer": {
+      "tagline": "Premium digitale Einladungen für Hochzeit & Standesamt.",
+      "columnProduct": "Produkt",
+      "columnLegal": "Rechtliches",
+      "linkTemplates": "Vorlagen",
+      "linkCatalog": "Shop-Vitrine",
+      "linkPricing": "Preise",
+      "linkFeatures": "Funktionen",
+      "linkPanel": "RSVP-Panel",
+      "linkPrivacy": "Datenschutz",
+      "linkTerms": "AGB",
+      "copy": "© {year} Davetio. Alle Rechte vorbehalten."
+    }
+  }
+}

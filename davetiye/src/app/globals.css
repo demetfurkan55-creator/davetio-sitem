@@ -1,0 +1,439 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Davetio kimliği — mühür (lacivert / altın) */
+  --color-seal-navy: #141f38;
+  --color-seal-navy-mid: #1e2d4d;
+  --color-seal-gold: #c6a04a;
+  --color-seal-gold-soft: #dcc896;
+  --color-canvas: #f6f3ec;
+  --color-canvas-muted: #ebe6df;
+  --color-ink: #161814;
+  --color-ink-soft: #2c2e2a;
+  --color-muted: #5e5c56;
+  --color-muted-light: #7a776f;
+  --color-brand: #3f5d51;
+  --color-brand-hover: #2f483e;
+  --color-brand-muted: rgba(63, 93, 81, 0.16);
+  --color-sage-deep: #24342c;
+  --color-wine: #7a3340;
+  --color-wine-hover: #632a35;
+  --color-wine-muted: rgba(122, 51, 64, 0.12);
+  --color-accent-rose: #b24a5c;
+  --color-accent-rose-muted: rgba(178, 74, 92, 0.14);
+  --color-accent-rose-hover: #943e4d;
+  --color-rose-gold: var(--color-brand);
+  --color-rose-gold-hover: var(--color-brand-hover);
+  --color-soft-gold: var(--color-seal-gold);
+  --color-soft-gold-muted: rgba(198, 160, 74, 0.28);
+  --color-accent-coral: #b24a5c;
+  --color-footer: #0f1729;
+  --color-footer-border: rgba(255, 255, 255, 0.08);
+  --font-sans: var(--font-dm), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), ui-serif, Georgia, serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+  --shadow-card: 0 4px 36px rgba(22, 24, 20, 0.07);
+  --shadow-card-hover: 0 28px 70px rgba(22, 24, 20, 0.11);
+  --shadow-button: 0 14px 40px rgba(63, 93, 81, 0.3);
+  --shadow-glow: 0 0 56px rgba(63, 93, 81, 0.18);
+}
+
+@keyframes davetio-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes davetio-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.94) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes davetio-pulse-ring {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(63, 93, 81, 0.32);
+  }
+  50% {
+    box-shadow: 0 0 0 11px rgba(63, 93, 81, 0);
+  }
+}
+
+html {
+  scroll-padding-top: 6.25rem;
+}
+
+@media (min-width: 1024px) {
+  html {
+    scroll-padding-top: 4.75rem;
+  }
+}
+
+body {
+  background-color: var(--color-canvas);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+}
+
+.font-accent {
+  font-family: var(--font-accent), ui-serif, Georgia, serif;
+}
+
+:focus-visible {
+  outline: 2px solid color-mix(in srgb, var(--color-seal-navy) 75%, white);
+  outline-offset: 3px;
+}
+
+/* Ana sayfa hero — pembe-krem, animasyonlu yumuşak lekeler */
+.davetio-hero-section {
+  background-color: #fef8fa;
+  background-image:
+    radial-gradient(ellipse 120% 80% at 50% -30%, rgba(255, 218, 230, 0.75), transparent 55%),
+    linear-gradient(168deg, #fff9fb 0%, #fdeef3 42%, #faf6f1 100%);
+}
+
+.davetio-hero-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(72px);
+  will-change: transform, opacity;
+}
+
+.davetio-hero-blob--a {
+  left: -12%;
+  top: -8%;
+  width: min(72vw, 520px);
+  height: min(52vw, 380px);
+  background: radial-gradient(
+    circle at 40% 40%,
+    rgba(255, 182, 193, 0.55) 0%,
+    rgba(255, 192, 203, 0.25) 45%,
+    transparent 72%
+  );
+  animation: davetio-blob-drift-a 22s ease-in-out infinite;
+}
+
+.davetio-hero-blob--b {
+  right: -10%;
+  top: 18%;
+  width: min(64vw, 480px);
+  height: min(48vw, 360px);
+  background: radial-gradient(
+    circle at 55% 45%,
+    rgba(236, 72, 153, 0.18) 0%,
+    rgba(251, 207, 232, 0.35) 50%,
+    transparent 70%
+  );
+  animation: davetio-blob-drift-b 26s ease-in-out infinite;
+}
+
+.davetio-hero-blob--c {
+  left: 22%;
+  bottom: -12%;
+  width: min(78vw, 580px);
+  height: min(44vw, 320px);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 228, 236, 0.85) 0%,
+    rgba(255, 183, 197, 0.2) 48%,
+    transparent 68%
+  );
+  animation: davetio-blob-drift-c 19s ease-in-out infinite;
+}
+
+.davetio-hero-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    115deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 42%,
+    rgba(255, 240, 246, 0.45) 50%,
+    rgba(255, 255, 255, 0.2) 58%,
+    transparent 100%
+  );
+  background-size: 200% 100%;
+  animation: davetio-hero-shimmer-sweep 11s ease-in-out infinite;
+  opacity: 0.65;
+  mix-blend-mode: overlay;
+}
+
+@keyframes davetio-blob-drift-a {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.9;
+  }
+  50% {
+    transform: translate(6%, 8%) scale(1.06);
+    opacity: 1;
+  }
+}
+
+@keyframes davetio-blob-drift-b {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1.02);
+    opacity: 0.85;
+  }
+  50% {
+    transform: translate(-7%, 6%) scale(0.97);
+    opacity: 0.95;
+  }
+}
+
+@keyframes davetio-blob-drift-c {
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.88;
+  }
+  33% {
+    transform: translate(5%, -4%) scale(1.05);
+    opacity: 0.98;
+  }
+  66% {
+    transform: translate(-4%, 5%) scale(0.98);
+    opacity: 0.9;
+  }
+}
+
+@keyframes davetio-hero-shimmer-sweep {
+  0%,
+  100% {
+    background-position: 120% 50%;
+  }
+  50% {
+    background-position: -20% 50%;
+  }
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+::selection {
+  background-color: rgba(63, 93, 81, 0.22);
+  color: var(--color-ink);
+}
+
+.davetio-animate-in {
+  animation: davetio-fade-up 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.davetio-modal-panel {
+  animation: davetio-scale-in 0.4s cubic-bezier(0.34, 1.2, 0.64, 1) both;
+}
+
+.davetio-fab-pulse {
+  animation: davetio-pulse-ring 2.6s ease-out infinite;
+}
+
+@keyframes davetio-invite-glow {
+  0%,
+  100% {
+    opacity: 0.28;
+  }
+  50% {
+    opacity: 0.48;
+  }
+}
+
+.davetio-invite-glimmer {
+  animation: davetio-invite-glow 3.8s ease-in-out infinite;
+}
+
+.davetio-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+}
+
+.davetio-hero-mesh {
+  background:
+    radial-gradient(900px 500px at 10% -10%, rgba(63, 93, 81, 0.18), transparent 55%),
+    radial-gradient(700px 420px at 95% 20%, rgba(122, 51, 64, 0.1), transparent 50%),
+    radial-gradient(500px 400px at 50% 100%, rgba(166, 139, 82, 0.12), transparent 45%);
+}
+
+/* Ana sayfa pembe hero — yumuşak lekeler */
+.davetio-hero-mesh-pink {
+  background:
+    radial-gradient(920px 540px at 10% -12%, rgba(255, 192, 203, 0.42), transparent 56%),
+    radial-gradient(740px 460px at 94% 14%, rgba(178, 74, 92, 0.14), transparent 52%),
+    radial-gradient(580px 440px at 46% 102%, rgba(255, 228, 236, 0.65), transparent 50%);
+}
+
+@keyframes davetio-heart-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.22;
+  }
+  50% {
+    transform: translate3d(var(--davetio-h-dx, 6px), -42px, 0);
+    opacity: 0.48;
+  }
+}
+
+.davetio-heart-particle {
+  animation-name: davetio-heart-float;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes davetio-heart-float-subtle {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0.1;
+  }
+  50% {
+    transform: translate3d(var(--davetio-h-dx, 4px), -22px, 0);
+    opacity: 0.2;
+  }
+}
+
+.davetio-heart-particle--subtle {
+  animation-name: davetio-heart-float-subtle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes davetio-word-drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(14px, -22px, 0) scale(1.04);
+  }
+}
+
+.davetio-ambient-word {
+  animation-name: davetio-word-drift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.scroll-smooth {
+    scroll-behavior: auto;
+  }
+
+  .davetio-animate-in,
+  .davetio-modal-panel {
+    animation: none !important;
+  }
+  .davetio-fab-pulse {
+    animation: none !important;
+  }
+  .davetio-invite-glimmer {
+    animation: none !important;
+  }
+
+  .davetio-heart-particle,
+  .davetio-heart-particle--subtle,
+  .davetio-ambient-word {
+    animation: none !important;
+  }
+
+  .davetio-hero-blob--a,
+  .davetio-hero-blob--b,
+  .davetio-hero-blob--c {
+    animation: none !important;
+  }
+
+  .davetio-hero-shimmer {
+    animation: none !important;
+    opacity: 0.35;
+  }
+}
+
+/* Hero — Swiper coverflow vitrin */
+.hero-coverflow-swiper .swiper-slide {
+  width: min(92vw, 580px);
+}
+
+.hero-coverflow-swiper .swiper-pagination {
+  bottom: 0 !important;
+}
+
+.hero-coverflow-swiper .swiper-pagination-bullet {
+  width: 7px;
+  height: 7px;
+  margin: 0 5px !important;
+  background: color-mix(in srgb, var(--color-ink) 22%, transparent);
+  opacity: 1;
+  transition:
+    transform 0.28s ease,
+    background 0.28s ease;
+}
+
+.hero-coverflow-swiper .swiper-pagination-bullet-active {
+  background: var(--color-seal-gold);
+  transform: scale(1.2);
+}
+
+.hero-coverflow-swiper .swiper-pagination-bullet-active-main {
+  background: var(--color-seal-gold);
+}
+
+.hero-coverflow-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--color-ink) 10%, transparent);
+  background: color-mix(in srgb, #fff 88%, transparent);
+  color: var(--color-ink);
+  box-shadow: 0 10px 28px rgba(22, 24, 20, 0.1);
+  backdrop-filter: blur(10px);
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.hero-coverflow-nav:hover {
+  transform: translateY(-50%) scale(1.05);
+  border-color: color-mix(in srgb, var(--color-seal-gold) 45%, transparent);
+  background: #fff;
+}
+
+.hero-coverflow-nav--prev {
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.hero-coverflow-nav--next {
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.hero-coverflow-nav.swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+@media (max-width: 639px) {
+  .hero-coverflow-nav {
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

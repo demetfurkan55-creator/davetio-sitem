@@ -1,0 +1,13 @@
+{
+  "name": "davetiye-sitem",
+  "private": true,
+  "description": "Üst klasörden çalıştırmak için: npm run dev → davetiye uygulamasını başlatır.",
+  "scripts": {
+    "dev": "npm --prefix davetiye run dev",
+    "dev:turbo": "npm --prefix davetiye run dev:turbo",
+    "build": "npm --prefix davetiye run build",
+    "build:clean": "npm --prefix davetiye run build:clean",
+    "start": "npm --prefix davetiye run start",
+    "clean": "npm --prefix davetiye run clean"
+  }
+}
